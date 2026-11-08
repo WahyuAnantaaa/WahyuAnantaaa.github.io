@@ -35,22 +35,22 @@ if('IntersectionObserver' in window){
 })();
 
 // ===== DAFTAR ASET: ganti jalur di sini kalau nama atau foldernya berbeda =====
-var WAHYU_PHOTO = 'assets/foto-wahyu.webp';
-var WAHYU_PHOTO_LO = 'assets/foto-wahyu-lo.webp';
+var WAHYU_PHOTO = 'assets/img/cutout.webp';
+var WAHYU_PHOTO_LO = 'assets/img/cutout-1000.webp';
 var WAHYU_LOGOS = {
-  capcut: 'assets/logo-capcut.svg',
-  canva: 'assets/logo-canva.svg',
-  ibispaint: 'assets/logo-ibispaint.svg',
-  chatgpt: 'assets/logo-chatgpt.webp',
-  gw: 'assets/logo-gw.svg',
-  notion: 'assets/logo-notion.webp',
-  github: 'assets/logo-github.webp',
-  claude: 'assets/logo-claude.svg',
-  tiktok: 'assets/logo-tiktok.svg',
-  m365: 'assets/logo-m365.svg',
-  smp: 'assets/sekolah-smp.webp',
-  smk: 'assets/sekolah-smk.webp',
-  dkv: 'assets/sekolah-dkv.webp'
+  capcut: 'assets/icon/capcut.svg',
+  canva: 'assets/icon/canva.svg',
+  ibispaint: 'assets/icon/ibispaint.svg',
+  chatgpt: 'assets/icon/chatgpt.webp',
+  gw: 'assets/icon/google-workspace.svg',
+  notion: 'assets/icon/notion.webp',
+  github: 'assets/icon/github.webp',
+  claude: 'assets/icon/claude.svg',
+  tiktok: 'assets/icon/tiktok-studio.svg',
+  m365: 'assets/icon/microsoft-365.svg',
+  smp: 'assets/icon/smp.webp',
+  smk: 'assets/icon/smk.webp',
+  dkv: 'assets/icon/dkv.webp'
 };
 
 // pilih ukuran foto sesuai kebutuhan layar, lalu mulai mengunduh semua aset sekarang (saat halo berjalan) supaya sudah siap sebelum "duar"
