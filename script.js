@@ -41,10 +41,10 @@ var WAHYU_LOGOS = {
   capcut: 'assets/icon/capcut.svg',
   canva: 'assets/icon/canva.svg',
   ibispaint: 'assets/icon/ibispaint.svg',
-  chatgpt: 'assets/icon/chatgpt.svg',
+  chatgpt: 'assets/icon/chatgpt.webp',
   gw: 'assets/icon/google-workspace.svg',
-  notion: 'assets/icon/notion.svg',
-  github: 'assets/icon/github.svg',
+  notion: 'assets/icon/notion.webp',
+  github: 'assets/icon/github.webp',
   claude: 'assets/icon/claude.svg',
   tiktok: 'assets/icon/tiktok-studio.svg',
   m365: 'assets/icon/microsoft-365.svg',
@@ -93,7 +93,7 @@ var WAHYU_LOGOS = {
   var warm = new Image(); warm.src = src; if (warm.decode) warm.decode().catch(function(){});
   var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var NAME = 'I Gede Wahyu Ananta';
-  var L = WAHYU_LOGOS;   // jalur logo: lihat DAFTAR ASET di atas. Ganti satu logo cukup menimpa berkasnya di assets/logo/
+  var L = WAHYU_LOGOS;   // jalur logo: lihat DAFTAR ASET di atas. Ganti satu logo cukup menimpa berkasnya di assets/icon/
   var IC = {
     musik:'<svg viewBox="0 0 100 100"><defs><linearGradient id="stg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8cc0"/><stop offset=".5" stop-color="#e8336f"/><stop offset="1" stop-color="#8f1248"/></linearGradient><linearGradient id="stg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#ffd3e6"/></linearGradient></defs><rect width="100" height="100" fill="url(#stg1)"/><circle cx="84" cy="14" r="38" fill="#fff" opacity=".1"/><g fill="url(#stg2)"><path d="M38 27 74 19v13L38 40z"/><rect x="38" y="34" width="6.5" height="34"/><rect x="67.5" y="26" width="6.5" height="34"/><ellipse cx="32" cy="69" rx="11.5" ry="8.5" transform="rotate(-22 32 69)"/><ellipse cx="61.5" cy="61" rx="11.5" ry="8.5" transform="rotate(-22 61.5 61)"/></g></svg>',
     game:'<svg viewBox="0 0 100 100"><defs><linearGradient id="stg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9a7bff"/><stop offset=".55" stop-color="#5a3fd6"/><stop offset="1" stop-color="#2b1a86"/></linearGradient><linearGradient id="stg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#d9d2ff"/></linearGradient></defs><rect width="100" height="100" fill="url(#stg3)"/><circle cx="16" cy="90" r="40" fill="#fff" opacity=".08"/><path d="M26 32H74C82 32 87.5 37 89.5 45L94 63C95.5 69 91 75 85 75C81.5 75 78.5 73.2 76.8 70.2L71.5 61H28.5L23.2 70.2C21.5 73.2 18.5 75 15 75C9 75 4.5 69 6 63L10.5 45C12.5 37 18 32 26 32Z" fill="url(#stg4)"/><path d="M25 41h6v5.5h5.5v6H31v5.5h-6v-5.5h-5.5v-6H25z" fill="#4a2fb0"/><circle cx="71" cy="43.5" r="3.6" fill="#ff5d7a"/><circle cx="77.5" cy="50" r="3.6" fill="#ffc233"/><circle cx="71" cy="56.5" r="3.6" fill="#3ddc97"/><circle cx="64.5" cy="50" r="3.6" fill="#4aa3ff"/><circle cx="46" cy="55" r="3" fill="#8f86d9"/><circle cx="54" cy="55" r="3" fill="#8f86d9"/></svg>',
