@@ -35,22 +35,22 @@ if('IntersectionObserver' in window){
 })();
 
 // ===== DAFTAR ASET: ganti jalur di sini kalau nama atau foldernya berbeda =====
-var WAHYU_PHOTO = 'assets/img/cutout.webp';
-var WAHYU_PHOTO_LO = 'assets/img/cutout-1000.webp';
+var WAHYU_PHOTO = 'assets/foto-wahyu.webp';
+var WAHYU_PHOTO_LO = 'assets/foto-wahyu-lo.webp';
 var WAHYU_LOGOS = {
-  capcut: 'assets/icon/capcut.svg',
-  canva: 'assets/icon/canva.svg',
-  ibispaint: 'assets/icon/ibispaint.svg',
-  chatgpt: 'assets/icon/chatgpt.webp',
-  gw: 'assets/icon/google-workspace.svg',
-  notion: 'assets/icon/notion.webp',
-  github: 'assets/icon/github.webp',
-  claude: 'assets/icon/claude.svg',
-  tiktok: 'assets/icon/tiktok-studio.svg',
-  m365: 'assets/icon/microsoft-365.svg',
-  smp: 'assets/icon/smp.webp',
-  smk: 'assets/icon/smk.webp',
-  dkv: 'assets/icon/dkv.webp'
+  capcut: 'assets/logo-capcut.svg',
+  canva: 'assets/logo-canva.svg',
+  ibispaint: 'assets/logo-ibispaint.svg',
+  chatgpt: 'assets/logo-chatgpt.webp',
+  gw: 'assets/logo-gw.svg',
+  notion: 'assets/logo-notion.webp',
+  github: 'assets/logo-github.webp',
+  claude: 'assets/logo-claude.svg',
+  tiktok: 'assets/logo-tiktok.svg',
+  m365: 'assets/logo-m365.svg',
+  smp: 'assets/sekolah-smp.webp',
+  smk: 'assets/sekolah-smk.webp',
+  dkv: 'assets/sekolah-dkv.webp'
 };
 
 // pilih ukuran foto sesuai kebutuhan layar, lalu mulai mengunduh semua aset sekarang (saat halo berjalan) supaya sudah siap sebelum "duar"
@@ -317,6 +317,8 @@ var Theme = (function(){
 var I18N = (function(){
   var DICT = {
     'Lewati intro':'Skip intro',
+    'Terima kasih sudah mampir. Kalau ada yang cocok, yuk ngobrol.':'Thanks for stopping by. If something fits, let\'s talk.',
+    'Kembali ke atas ↑':'Back to top ↑',
     'Lanjut':'Continue',
     '03 SKILL':'03 SKILLS','04 KARYA':'04 WORK','05 JEJAK':'05 JOURNEY','06 LAINNYA':'06 MORE','07 KONTAK':'07 CONTACT',
     '<b>DKV × Teknik</b><span class="k-more"> · Singaraja, Bali · Tersedia untuk kolaborasi</span>':'<b>DKV × Tech</b><span class="k-more"> · Singaraja, Bali · Open to collaboration</span>',
@@ -665,9 +667,9 @@ var Orb = (function(){
     els[els.length - 1].textContent = I18N.get().toUpperCase();
   }
 
-  function railW(){ return window.innerWidth > 900 ? 64 : 0; }
+  function railW(){ return 0; }
   function clampY(y){ return Math.max(M, Math.min(window.innerHeight - SZ - M, y)); }
-  function xFor(side){ return side === 'left' ? railW() + M : window.innerWidth - SZ - M; }
+  function xFor(side){ return side === 'left' ? railW() + M : window.innerWidth - SZ - M - 10; }
   function place(){ orb.style.left = xFor(st.side) + 'px'; orb.style.top = clampY(st.y) + 'px'; }
   function save(){ try { localStorage.setItem(KEY, JSON.stringify(st)); } catch(e) {} }
 
@@ -790,14 +792,16 @@ var Orb = (function(){
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && open) setOpen(false, true); });
   window.addEventListener('resize', function(){ place(); if (open) layout(); });
 
-  if ('IntersectionObserver' in window) {
-    var links = {};
-    els.forEach(function(b){ if (b.dataset.id.charAt(0) !== '_') links[b.dataset.id] = b; });
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ var a = links[en.target.id]; if (a) a.classList.toggle('active', en.isIntersecting); });
-    }, { rootMargin:'-40% 0px -40% 0px' });
-    Object.keys(links).forEach(function(id){ var el = document.getElementById(id); if (el) io.observe(el); });
+  var links = {};
+  els.forEach(function(b){ if (b.dataset.id.charAt(0) !== '_') links[b.dataset.id] = b; });
+  var ids = Object.keys(links), spyRaf = 0;
+  function spy(){
+    var line = window.innerHeight * .4, cur = null;
+    ids.forEach(function(id){ var el = document.getElementById(id); if (!el) return; var r = el.getBoundingClientRect(); if (r.top <= line && r.bottom > line) cur = id; });
+    ids.forEach(function(id){ links[id].classList.toggle('active', id === cur); });
   }
+  window.addEventListener('scroll', function(){ if (!spyRaf) spyRaf = requestAnimationFrame(function(){ spyRaf = 0; spy(); }); }, {passive:true});
+  window.addEventListener('resize', spy); spy();
 
   function home(){ st.side = 'right'; st.y = (window.innerHeight - SZ) / 2; place(); save(); }   // kanan tengah
   place(); paint();
@@ -886,3 +890,30 @@ var Orb = (function(){
 })();
 
 I18N.init();
+
+// === Judul bagian aktif + scrollbar kanan ===
+(function(){
+  var de = document.documentElement, secs = [].slice.call(document.querySelectorAll('#hero,.sec')),
+      title = document.getElementById('sectTitle'), sl = document.getElementById('slider'), th = document.getElementById('slThumb');
+  if (!title || !sl || !th) return;
+  de.classList.add('has-slider');
+  var vh = function(){ return window.innerHeight; }, max = function(){ return Math.max(1, de.scrollHeight - vh()); };
+  var cur = null, idle = 0, raf = 0, drag = null;
+  function nameOf(s){ var h = s.querySelector('.sec-head h2'); return (s.id === 'hero' || !h) ? '' : h.textContent.trim(); }
+  function update(){
+    var H = sl.clientHeight, tH = Math.min(H, Math.max(40, H * vh() / de.scrollHeight));
+    th.style.height = tH + 'px';
+    th.style.transform = 'translateY(' + (window.scrollY / max() * (H - tH)) + 'px)';
+    var act = null; secs.forEach(function(s){ var r = s.getBoundingClientRect(); if (r.top <= vh() * .4 && r.bottom > vh() * .4) act = s; });
+    var t = act ? nameOf(act) : '';
+    if (t !== cur){ cur = t; title.classList.remove('show'); setTimeout(function(){ title.textContent = cur; title.classList.toggle('show', !!cur); }, 140); }
+  }
+  function tick(){ if (!raf) raf = requestAnimationFrame(function(){ raf = 0; update(); }); }
+  window.addEventListener('scroll', function(){ sl.classList.add('on'); clearTimeout(idle); idle = setTimeout(function(){ sl.classList.remove('on'); }, 900); tick(); }, {passive:true});
+  window.addEventListener('resize', tick); window.addEventListener('load', tick); tick();
+  th.addEventListener('pointerdown', function(e){ drag = {y:e.clientY, s:window.scrollY}; th.setPointerCapture(e.pointerId); sl.classList.add('drag'); e.preventDefault(); });
+  th.addEventListener('pointermove', function(e){ if (!drag) return; window.scrollTo({top: drag.s + (e.clientY - drag.y) * max() / Math.max(1, sl.clientHeight - th.offsetHeight), behavior:'instant'}); });
+  function end(){ drag = null; sl.classList.remove('drag'); }
+  th.addEventListener('pointerup', end); th.addEventListener('pointercancel', end);
+  sl.addEventListener('pointerdown', function(e){ if (e.target !== sl) return; var r = sl.getBoundingClientRect(); window.scrollTo({top: (e.clientY - r.top) / r.height * max(), behavior:'smooth'}); });
+})();
