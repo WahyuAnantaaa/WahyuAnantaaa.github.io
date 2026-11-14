@@ -1,3 +1,4 @@
+/* ===== script.js ===== */
 'use strict';
 
 if('IntersectionObserver' in window){
@@ -294,6 +295,7 @@ var CVMode = (function(){
   function set(mode, btn){
     document.querySelectorAll('#cvTabs button').forEach(function(b){ b.classList.remove('active'); });
     btn.classList.add('active');
+    var tb = document.getElementById('cvTabs'); if (tb) tb.dataset.i = (mode === 'lengkap') ? '1' : '0';
     document.querySelectorAll('.cv-mode').forEach(function(m){ m.classList.toggle('active', m.dataset.mode === mode); });
   }
   return { set: set };
@@ -322,7 +324,24 @@ var I18N = (function(){
     'Lanjut':'Continue',
     '03 SKILL':'03 SKILLS','04 KARYA':'04 WORK','05 JEJAK':'05 JOURNEY','06 LAINNYA':'06 MORE','07 KONTAK':'07 CONTACT',
     '<b>DKV × Teknik</b><span class="k-more"> · Singaraja, Bali · Tersedia untuk kolaborasi</span>':'<b>DKV × Tech</b><span class="k-more"> · Singaraja, Bali · Open to collaboration</span>',
-    'Lokasi':'Location','Sekolah':'School','Lulus':'Graduating','Tersedia untuk kolaborasi':'Open to collaboration',
+    'Lokasi':'Location','Sekolah':'School','Lulus':'Graduating','Tersedia untuk kolaborasi':'Open to collaboration','Belum tersedia untuk kolaborasi':'Not available for collaboration',
+    'Aku <mark>mendesain</mark> tampilannya, lalu <mark>menulis kodenya</mark> sendiri.':'I <mark>design</mark> the look, then <mark>write the code</mark> myself.','Poster dan identitas visual: logo, tipografi, layout.':'Posters and visual identity: logos, typography, layout.','Merancang alur dan tampilan supaya enak dipakai.':'Designing flows and interfaces that feel good to use.','HTML, CSS, dan JavaScript dari nol, tanpa framework.':'HTML, CSS, and JavaScript from scratch, no framework.','Saya <mark>merancang</mark> tampilannya, lalu <mark>membangunnya</mark> sampai jalan.':'I <mark>design</mark> the look, then <mark>build it</mark> until it works.',
+    'Siswa DKV di SMKN 3 Singaraja. Saya paling nyaman di antara desain dan logika: merancang alur dan tampilan, lalu menulis kodenya sendiri. Selebihnya saya belajar mandiri, dari web dan UI/UX sampai matematika dan sains.':'DKV student at SMKN 3 Singaraja. I am most at home between design and logic: designing flows and interfaces, then writing the code myself. Beyond that, I teach myself, from web and UI/UX to math and science.',
+    'Situs ini saya buat sendiri. Saya bekerja paling baik dengan brief yang jelas dan tenggat yang masuk akal.':'I built this site myself. I work best with a clear brief and a reasonable deadline.',
+    'UI/UX dan Web':'UI/UX and Web','Merancang alur dan tampilan, lalu menulis HTML, CSS, dan JavaScript dari nol.':'Designing flows and interfaces, then writing HTML, CSS, and JavaScript from scratch.',
+    'Materi dan Dokumen':'Materials and Documents','Poster, foto yang didesain, dan konten visual.':'Posters, designed photos, and visual content.','Riset materi, presentasi, dan dokumen yang tertata rapi.':'Researching materials, presentations, and neatly organized documents.',
+    '<mark>Ide gila</mark> <span class="tt-arrow">→</span> <mark>karya nyata</mark>.':'<mark>Crazy ideas</mark> <span class="tt-arrow">→</span> <mark>real work</mark>.',
+    'Kreatif, teknis, end-to-end.':'Creative, technical, end to end.',
+    'Kalau idenya dari saya, saya kerjakan sendiri sampai selesai. Apa pun yang dibutuhkan, dari merancang, merencanakan, sampai membangun, saya lakukan, dan kalau ada yang belum bisa, saya pelajari dulu. Dari ide yang masih mentah sampai siap dinikmati, tanggung jawabnya ada pada saya. Situs ini contohnya.':'If the idea is mine, I see it through myself. Whatever it takes, from designing and planning to building, I do it, and if there is something I cannot do yet, I learn it first. From a raw idea to something ready to enjoy, the responsibility is mine. This site is an example.',
+    'SALAH SATU MAHAKARYA':'ONE OF MY MASTERPIECES','Salah satu mahakarya saya adalah ini: web CV.':'One of my masterpieces is this one: the web CV.','Sebuah web yang dirancang untuk menjelaskan diri saya kepada banyak orang dengan berbagai tipe, tanpa kehilangan rasa nyaman.':'A website designed to explain me to many kinds of people, without losing the feeling of comfort.','Aktifkan mode serius':'Turn on serious mode','Kembali ke mode biasa':'Back to normal mode',
+    'Kebahasaan':'Language','Teknokratis dan to the point':'Technocratic and to the point','Psikologis dan kebiasaan':'Psychology and habits','Detail brutal':'Brutal detail',
+    'Informatif dan mudah dicerna: kalimatnya pendek, istilah teknis dijelaskan, dan tersedia dalam dua bahasa.':'Informative and easy to digest: short sentences, technical terms explained, and available in two languages.',
+    'Intro yang bergerak, gradasi lembut, dan interaksi kecil, supaya membuka situs ini jadi pengalaman yang berkesan.':'A moving intro, soft gradients, and small interactions, so opening this site becomes a memorable experience.',
+    'Dalam satu layar pertama sudah jelas siapa saya, bidang saya, dan cara menghubungi saya. Tanpa banyak scroll, tanpa buang waktu.':'Within the first screen it is clear who I am, what I do, and how to reach me. No long scrolling, no wasted time.',
+    'Dirancang supaya nyaman: satu bagian per layar, menu dalam jangkauan jempol, mengikuti pengaturan "kurangi gerakan", tanpa iklan dan tanpa pop-up.':'Designed to feel comfortable: one section per screen, a menu within thumb reach, respecting the reduce-motion setting, no ads and no pop-ups.',
+    'Kalau ingin tahu lebih dalam, ada mode serius yang memperlihatkan seberapa banyak informasi yang bisa digali dari satu halaman.':'If you want to dig deeper, a serious mode shows how much information can be found on a single page.',
+    'Dulu':'Before','Sekarang':'Now','Jenjang menengah pertama':'Junior high school','Desain Visual':'Visual Design','Tentang':'About','CERITA':'STORY','PENGALAMAN':'EXPERIENCE','Situs yang lagi kamu buka ini bikinan sendiri.':'This site you are looking at, I built myself.','Desain Komunikasi Visual':'Visual Communication Design','Lihat perjalanan lengkap':'See the full journey','Lulus 2027':'Graduating 2027','Kreatif':'Creative',
+    'Siswa DKV dari Singaraja yang suka merancang tampilan, lalu menulis kodenya sendiri. Masih belajar, masih sering salah, tapi tiap minggu selalu ada yang baru dibuat.':'A DKV student from Singaraja who likes designing the look and then writing the code himself. Still learning, still making mistakes, but something new gets built every week.',
     'Siswa DKV yang suka ngoding. Web ini aku bikin sendiri.':'A DKV student who likes coding. I built this site myself.',
     'Unduh CV (PDF)':'Download CV (PDF)',
     'Langsung ke Kontak':'Jump to Contact',
@@ -643,7 +662,7 @@ var Orb = (function(){
 
   var ITEMS = [
     {id:'hero',   ic:'M3 11l9-8 9 8M5 10v10h14V10', l:['Beranda','Home']},
-    {id:'cv',     ic:'M12 12a4 4 0 100-8 4 4 0 000 8zM4 21c0-4 4-6 8-6s8 2 8 6', l:['Tentang & CV','About & CV']},
+    {id:'cv',     ic:'M12 12a4 4 0 100-8 4 4 0 000 8zM4 21c0-4 4-6 8-6s8 2 8 6', l:['Tentang','About']},
     {id:'skill',  ic:'M13 2L4 14h7l-1 8 9-12h-7l1-8z', l:['Skill','Skills']},
     {id:'porto',  ic:'M4 5h16v14H4zM4 15l5-5 5 5 2-2 4 4', l:['Portofolio','Portfolio']},
     {id:'tl',     ic:'M12 21a9 9 0 100-18 9 9 0 000 18zM12 7v5l3 2', l:['Pengalaman','Experience']},
@@ -916,4 +935,55 @@ I18N.init();
   function end(){ drag = null; sl.classList.remove('drag'); }
   th.addEventListener('pointerup', end); th.addEventListener('pointercancel', end);
   sl.addEventListener('pointerdown', function(e){ if (e.target !== sl) return; var r = sl.getBoundingClientRect(); window.scrollTo({top: (e.clientY - r.top) / r.height * max(), behavior:'smooth'}); });
+})();
+
+/* Tentang: kartu mahakarya + MODE SERIUS. Semua angka dibaca langsung dari halaman ini (tidak dikarang) */
+window.BP = (function(){
+  var sec = document.getElementById('cv'), btn = document.getElementById('bpBtn'), on = false, t = 0;
+  var SEL = '.cv-card,.edu-item,.tt-do li,.ap-list li';
+  function en(){ return document.documentElement.lang === 'en'; }
+  function mode(){
+    var st = document.querySelector('.stage'), low, lite;   // kelas lite/low diset sistem tier di panggung intro
+    if (st) { low = st.classList.contains('low'); lite = st.classList.contains('lite'); }
+    else { var m = navigator.deviceMemory || 8, c = navigator.hardwareConcurrency || 8; low = c <= 2 || m <= 2 || /Windows NT 6\.[01]/.test(navigator.userAgent); lite = low || m <= 4; }
+    return en() ? (low ? 'Light' : lite ? 'Medium' : 'Full') : (low ? 'Ringan' : lite ? 'Sedang' : 'Penuh');
+  }
+  function loadText(){
+    var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0], ms = n ? Math.round(n.domContentLoadedEventEnd) : 0;
+    if (!ms && performance.timing && performance.timing.domContentLoadedEventEnd) ms = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+    if (!ms || ms < 0) return '—';
+    return ms < 1000 ? ms + ' ms' : (ms / 1000).toFixed(1).replace('.', en() ? '.' : ',') + ' s';
+  }
+  function libs(){ return Array.prototype.filter.call(document.scripts, function(s){ if (!s.src) return false; try { return new URL(s.src).origin !== location.origin; } catch (e) { return false; } }).length; }
+  function cssStats(){
+    var rules = 0, kf = 0;
+    Array.prototype.forEach.call(document.styleSheets, function(ss){ try { Array.prototype.forEach.call(ss.cssRules, function(r){ rules++; if (r.type === 7) kf++; }); } catch (e) {} });
+    return { rules: rules, kf: kf };
+  }
+  function details(){
+    var e = en(), s = cssStats(), nodes = document.getElementsByTagName('*').length, secs = document.querySelectorAll('section').length;
+    var red = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, L = loadText();
+    var d = [
+      secs + (e ? ' sections · 2 languages (ID/EN) · ' + nodes + ' page elements' : ' bagian · 2 bahasa (ID/EN) · ' + nodes + ' elemen halaman'),
+      s.kf + (e ? ' animations · ' + s.rules + ' style rules' : ' animasi · ' + s.rules + ' aturan gaya'),
+      (e ? 'ready in ' : 'siap dipakai ') + L + (e ? ' · third-party scripts: ' : ' · script pihak ketiga: ') + libs(),
+      (e ? 'mode ' + mode() + ' (automatic) · 2 themes · reduce motion: ' + (red ? 'on' : 'off') : 'mode ' + mode() + ' (otomatis) · 2 tema · kurangi gerakan: ' + (red ? 'aktif' : 'mati')),
+      e ? 'serious mode on: the size of every element is shown' : 'mode serius aktif: ukuran tiap elemen ditampilkan'
+    ];
+    d.forEach(function(txt, i){ var el = document.getElementById('ap' + (i + 1)); if (el) el.textContent = txt; });
+  }
+  function label(){
+    sec.querySelectorAll(SEL).forEach(function(el){
+      var r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+      el.setAttribute('data-dim', Math.round(r.width) + ' × ' + Math.round(r.height) + ' · r' + (parseInt(cs.borderTopLeftRadius, 10) || 0) + ' · p' + (parseInt(cs.paddingLeft, 10) || 0));
+    });
+  }
+  function toggle(){
+    if (!sec) return;
+    on = !on; sec.classList.toggle('bp', on); if (btn) btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    if (on) { details(); label(); } else sec.querySelectorAll('[data-dim]').forEach(function(el){ el.removeAttribute('data-dim'); });
+  }
+  window.addEventListener('resize', function(){ if (!on) return; clearTimeout(t); t = setTimeout(label, 150); });
+  if ('MutationObserver' in window) new MutationObserver(function(){ if (on) { details(); setTimeout(label, 60); } }).observe(document.documentElement, { attributes:true, attributeFilter:['lang'] });
+  return { toggle: toggle };
 })();
