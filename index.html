@@ -22,10 +22,11 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"I Gede Wahyu Ananta","jobTitle":"Siswa Desain Komunikasi Visual","alumniOf":"SMKN 3 Singaraja","address":{"@type":"PostalAddress","addressLocality":"Singaraja","addressRegion":"Bali","addressCountry":"ID"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital@1&family=Anton&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:ital@1&family=Anton&family=Inter:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<!-- STATUS KOLABORASI (satu sumber untuk beranda dan CV): ubah data-collab di <body> jadi "false" untuk menampilkan "Belum tersedia" -->
+<body data-collab="true">
 <div class="orb-wrap" id="orbWrap" role="navigation" aria-label="Menu pintasan">
   <div class="orb-fx" id="orbFx" aria-hidden="true"></div>
   <div class="orb-panel" id="orbPanel" role="menu" aria-label="Pintasan" data-side="right"></div>
@@ -56,58 +57,91 @@
 
   <section class="hero" id="hero">
     <div class="wrap hero-grid">
-      <div>
-        <p class="hero-kicker rv"><b>hidup jokowi</b><span class="k-more"> · wiwok de tok</span></p>
-        <h1 class="rv">I Gede Wahyu Ananta</h1>
-        <p class="hero-sub rv">suami sah Ei, calon suami Anastasya Feodorovna Snezhnaya.</p>
-        <div class="hero-actions rv">
+      <div class="hero-top">
+        <!-- FOTO FORMAL: assets/img/foto-formal.jpg (rasio 4:5) -->
+        <div class="hero-side"><div class="hero-portrait placeholder-img rv"><span class="ph-text">Foto formal</span><img class="hero-photo" src="assets/img/foto-formal.jpg" alt="Foto I Gede Wahyu Ananta" width="800" height="1000" decoding="async" onload="this.parentNode.classList.add('has-photo')" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='assets/img/foto-formal.webp'}else{this.remove()}"></div></div>
+        <div class="hero-info rv">
+          <div class="hero-meta">
+          <span class="status"><i class="dot"></i><span class="st-on">Tersedia untuk kolaborasi</span><span class="st-off">Belum tersedia untuk kolaborasi</span></span>
+            <span class="loc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="2"/></svg>Singaraja, Bali</span>
+          </div>
+          <ul class="hero-tags" aria-label="Bidang keahlian">
+            <li>DKV</li><li>Kreatif</li><li>STEM</li><li>Visual Design</li><li>Microsoft &amp; Google</li><li>HTML &amp; CSS</li>
+          </ul>
+        <div class="hero-actions hero-actions-d rv">
           <a href="CV-I-Gede-Wahyu-Ananta.pdf" download class="btn-solid">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3v13m0 0l-5-5m5 5l5-5M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span>Unduh CV (PDF)</span>
           </a>
           <a href="#kontak" class="link-line">Langsung ke Kontak</a>
         </div>
+        </div>
       </div>
-      <!-- FOTO FORMAL: assets/img/foto-formal.jpg (rasio 4:5) -->
-            <div class="hero-side"><div class="hero-portrait placeholder-img rv"><span class="ph-text">Foto formal</span><img class="hero-photo" src="assets/img/foto-formal.jpg" alt="Foto I Gede Wahyu Ananta" width="800" height="1000" decoding="async" onload="this.parentNode.classList.add('has-photo')" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='assets/img/foto-formal.webp'}else{this.remove()}"></div>
-        <ul class="hero-facts rv" aria-label="Ringkasan singkat">
-          <li><small>Status</small><span class="av"><i class="dot"></i><em>Tersedia untuk kolaborasi</em></span></li>
-          <li><small>Lokasi</small><em>Singaraja, Bali</em></li>
-          <li><small>Sekolah</small><em>SMKN 3 Singaraja</em></li>
-          <li><small>Lulus</small><em>2027</em></li>
-        </ul></div>
+      <div class="hero-text">
+        <h1 class="rv">I Gede Wahyu Ananta</h1>
+        <p class="hero-sub rv">Siswa DKV dari Singaraja yang suka merancang tampilan, lalu menulis kodenya sendiri. Masih belajar, masih sering salah, tapi tiap minggu selalu ada yang baru dibuat.</p>
+      </div>
+      <!-- tombol versi HP: satu baris di bawah nama + caption. Isi sama dengan yang di samping foto -->
+      <div class="hero-actions hero-actions-m rv">
+      <a href="CV-I-Gede-Wahyu-Ananta.pdf" download class="btn-solid">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3v13m0 0l-5-5m5 5l5-5M4 21h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Unduh CV (PDF)</span>
+      </a>
+      <a href="#kontak" class="link-line">Langsung ke Kontak</a>
+    </div>
     </div>
   </section>
 
   <section class="sec" id="cv">
     <div class="wrap">
-      <div class="sec-head rv"><span class="sec-num">02</span><h2>Tentang &amp; CV</h2></div>
+      <div class="sec-head rv"><span class="sec-num">02</span><h2>Tentang</h2></div>
 
-      <div class="tabs rv" id="cvTabs">
-        <button class="active" onclick="CVMode.set('ringkas',this)">Ringkas</button>
-        <button onclick="CVMode.set('lengkap',this)">Lengkap</button>
-      </div>
-
-      <div class="cv-mode active" data-mode="ringkas">
-        <p class="cv-quote rv">Suka desain, suka ngoding, dan masih belajar dua-duanya.</p>
-        <div class="cv-spec rv">
-          <div class="cv-spec-row"><span class="cv-spec-lbl">STATUS</span><span class="cv-spec-val">Siswa DKV · Tersedia untuk kolaborasi</span></div>
-          <div class="cv-spec-row"><span class="cv-spec-lbl">RINGKASAN</span><span class="cv-spec-val">Aku suka desain dan suka bikin web. Situs yang lagi kamu buka ini bikinan sendiri.</span></div>
-          <div class="cv-spec-row"><span class="cv-spec-lbl">FOKUS</span><div class="chip-row"><span>Adobe Suite</span><span>Microsoft 365</span><span>Visual Design</span><span>HTML/CSS/JS</span></div></div>
-          <div class="cv-spec-row"><span class="cv-spec-lbl">DATA</span><span class="cv-spec-val">SMKN 3 Singaraja · Lulus 2027 · Singaraja, Bali</span></div>
-        </div>
-      </div>
-
-      <div class="cv-mode" data-mode="lengkap">
-        <p class="cv-intro">Siswa SMKN 3 Singaraja jurusan Desain Komunikasi Visual. Selain desain, aku belajar bikin web sendiri di luar jam sekolah.</p>
-        <div class="cv-spec">
-          <div class="cv-spec-row"><span class="cv-spec-lbl">PENDIDIKAN</span><span class="cv-spec-val">SMKN 3 Singaraja, Desain Komunikasi Visual · 2025 sampai 2027</span></div>
-          <div class="cv-spec-row"><span class="cv-spec-lbl">KEAHLIAN</span>
-            <div class="chip-row"><span>Ekosistem Microsoft</span><span>Adobe &amp; Kreatif</span><span>HTML &amp; CSS</span><span>Visual Design</span><span>Soft Skill</span></div>
+      <!-- TENTANG: dua blok. (1) Deskripsi yang menjawab "jual skill apa", (2) riwayat pendidikan per generasi. Nanti SMP diganti Universitas: tinggal ganti satu .edu-item -->
+      <div class="cv-bento">
+        <div class="cv-card cv-card-hl s6 tt-hl rv">
+          <div class="tt-main">
+            <span class="cv-spec-lbl">CERITA</span>
+            <h3 class="tt-statement"><mark>Ide gila</mark> <span class="tt-arrow">→</span> <mark>karya nyata</mark>.</h3>
+            <p class="tt-sub">Kreatif, teknis, end-to-end.</p>
+            <p class="cv-intro">Kalau idenya dari saya, saya kerjakan sendiri sampai selesai. Apa pun yang dibutuhkan, dari merancang, merencanakan, sampai membangun, saya lakukan, dan kalau ada yang belum bisa, saya pelajari dulu. Dari ide yang masih mentah sampai siap dinikmati, tanggung jawabnya ada pada saya. Situs ini contohnya.</p>
           </div>
-          <div class="cv-spec-row"><span class="cv-spec-lbl">NILAI</span><span class="cv-spec-val">Teliti, mau belajar, enak diajak kerja bareng.</span></div>
+          <ol class="tt-do">
+            <li><span class="tt-n">01</span><b>UI/UX dan Web</b><span>Merancang alur dan tampilan, lalu menulis HTML, CSS, dan JavaScript dari nol.</span></li>
+            <li><span class="tt-n">02</span><b>Desain Visual</b><span>Poster, foto yang didesain, dan konten visual.</span></li>
+            <li><span class="tt-n">03</span><b>Materi dan Dokumen</b><span>Riset materi, presentasi, dan dokumen yang tertata rapi.</span></li>
+          </ol>
         </div>
-        <a href="#tl" class="link-line cv-cta">Lihat Perjalanan Lengkap →</a>
+        <div class="cv-card cv-proof s6 rv" id="proofCard">
+          <div class="proof-head">
+            <div class="proof-title">
+              <span class="cv-spec-lbl mono">SALAH SATU MAHAKARYA</span>
+              <h3 class="ap-title">Salah satu mahakarya saya adalah ini: web CV.</h3>
+              <p class="ap-sub">Sebuah web yang dirancang untuk menjelaskan diri saya kepada banyak orang dengan berbagai tipe, tanpa kehilangan rasa nyaman.</p>
+            </div>
+            <button type="button" class="bp-btn" id="bpBtn" aria-pressed="false" onclick="BP.toggle()"><span class="bp-off">Aktifkan mode serius</span><span class="bp-on">Kembali ke mode biasa</span></button>
+          </div>
+          <ol class="ap-list">
+            <li><span class="tt-n mono">01</span><div><b>Kebahasaan</b><span>Informatif dan mudah dicerna: kalimatnya pendek, istilah teknis dijelaskan, dan tersedia dalam dua bahasa.</span><span class="ap-detail mono" id="ap1"></span></div></li>
+            <li><span class="tt-n mono">02</span><div><b>Kreatif</b><span>Intro yang bergerak, gradasi lembut, dan interaksi kecil, supaya membuka situs ini jadi pengalaman yang berkesan.</span><span class="ap-detail mono" id="ap2"></span></div></li>
+            <li><span class="tt-n mono">03</span><div><b>Teknokratis dan to the point</b><span>Dalam satu layar pertama sudah jelas siapa saya, bidang saya, dan cara menghubungi saya. Tanpa banyak scroll, tanpa buang waktu.</span><span class="ap-detail mono" id="ap3"></span></div></li>
+            <li><span class="tt-n mono">04</span><div><b>Psikologis dan kebiasaan</b><span>Dirancang supaya nyaman: satu bagian per layar, menu dalam jangkauan jempol, mengikuti pengaturan "kurangi gerakan", tanpa iklan dan tanpa pop-up.</span><span class="ap-detail mono" id="ap4"></span></div></li>
+            <li><span class="tt-n mono">05</span><div><b>Detail brutal</b><span>Kalau ingin tahu lebih dalam, ada mode serius yang memperlihatkan seberapa banyak informasi yang bisa digali dari satu halaman.</span><span class="ap-detail mono" id="ap5"></span></div></li>
+          </ol>
+        </div>
+        <div class="cv-card s6 rv">
+          <span class="cv-spec-lbl">PENDIDIKAN</span>
+          <ol class="edu">
+            <li class="edu-item past">
+              <span class="edu-logo"><img src="assets/icon/smp.webp" alt="Logo SMPN 1 Singaraja" width="44" height="44" loading="lazy"></span>
+              <div><span class="edu-tag"><span>Dulu</span></span><b>SMPN 1 Singaraja</b><span>Jenjang menengah pertama</span></div>
+            </li>
+            <li class="edu-sep" aria-hidden="true"></li>
+            <li class="edu-item now">
+              <span class="edu-logo"><img src="assets/icon/smk.webp" alt="Logo SMKN 3 Singaraja" width="44" height="44" loading="lazy"></span>
+              <div><span class="edu-tag"><i class="dot"></i><span>Sekarang</span></span><b>SMKN 3 Singaraja</b><span>Desain Komunikasi Visual</span><span>Lulus 2027</span></div>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
