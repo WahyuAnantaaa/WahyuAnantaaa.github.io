@@ -19,7 +19,7 @@
 <meta property="og:description" content="Web CV I Gede Wahyu Ananta, siswa Desain Komunikasi Visual SMKN 3 Singaraja yang suka desain dan ngoding.">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%233440D6'/%3E%3Ctext x='32' y='44' font-size='34' font-family='sans-serif' font-weight='700' fill='%23fff' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"I Gede Wahyu Ananta","jobTitle":"Siswa Desain Komunikasi Visual","alumniOf":"SMKN 3 Singaraja","address":{"@type":"PostalAddress","addressLocality":"Singaraja","addressRegion":"Bali","addressCountry":"ID"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"I Gede Wahyu Ananta","jobTitle":"Siswa Desain Komunikasi Visual","affiliation":{"@type":"EducationalOrganization","name":"SMKN 3 Singaraja"},"address":{"@type":"PostalAddress","addressLocality":"Singaraja","addressRegion":"Bali","addressCountry":"ID"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:ital@1&family=Anton&family=Inter:wght@600;700&display=swap" rel="stylesheet">
@@ -59,7 +59,7 @@
     <div class="wrap hero-grid">
       <div class="hero-top">
         <!-- FOTO FORMAL: assets/img/foto-formal.jpg (rasio 4:5) -->
-        <div class="hero-side"><div class="hero-portrait placeholder-img rv"><span class="ph-text">Foto formal</span><img class="hero-photo" src="assets/img/foto-formal.jpg" alt="Foto I Gede Wahyu Ananta" width="800" height="1000" decoding="async" onload="this.parentNode.classList.add('has-photo')" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='assets/img/foto-formal.webp'}else{this.remove()}"></div></div>
+        <div class="hero-side"><div class="hero-portrait placeholder-img rv"><span class="ph-text">Foto formal</span><img class="hero-photo" src="assets/img/foto-formal.jpg" alt="Foto I Gede Wahyu Ananta" width="800" height="1000" decoding="async" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()"></div></div>
         <div class="hero-info rv">
           <div class="hero-meta">
           <span class="status"><i class="dot"></i><span class="st-on">Tersedia untuk kolaborasi</span><span class="st-off">Belum tersedia untuk kolaborasi</span></span>
@@ -79,7 +79,7 @@
       </div>
       <div class="hero-text">
         <h1 class="rv">I Gede Wahyu Ananta</h1>
-        <p class="hero-sub rv">Siswa DKV dari Singaraja yang suka merancang tampilan, lalu menulis kodenya sendiri. Masih belajar, masih sering salah, tapi tiap minggu selalu ada yang baru dibuat.</p>
+        <p class="hero-sub rv">Siswa DKV yang berani masuk ke ranah teknis. Saya merancang tampilan, lalu membangunnya sampai jadi, dari ide mentah sampai siap dinikmati.</p>
       </div>
       <!-- tombol versi HP: satu baris di bawah nama + caption. Isi sama dengan yang di samping foto -->
       <div class="hero-actions hero-actions-m rv">
@@ -99,34 +99,56 @@
       <!-- TENTANG: dua blok. (1) Deskripsi yang menjawab "jual skill apa", (2) riwayat pendidikan per generasi. Nanti SMP diganti Universitas: tinggal ganti satu .edu-item -->
       <div class="cv-bento">
         <div class="cv-card cv-card-hl s6 tt-hl rv">
+          <div class="tt-top">
+            <h3 class="tt-statement"><mark>Ide gila</mark> <span class="tt-arrow">→</span> <mark>karya nyata</mark></h3>
+            <p class="tt-sub">Kreatif · Teknis · End-to-end</p>
+          </div>
           <div class="tt-main">
-            <span class="cv-spec-lbl">CERITA</span>
-            <h3 class="tt-statement"><mark>Ide gila</mark> <span class="tt-arrow">→</span> <mark>karya nyata</mark>.</h3>
-            <p class="tt-sub">Kreatif, teknis, end-to-end.</p>
-            <p class="cv-intro">Kalau idenya dari saya, saya kerjakan sendiri sampai selesai. Apa pun yang dibutuhkan, dari merancang, merencanakan, sampai membangun, saya lakukan, dan kalau ada yang belum bisa, saya pelajari dulu. Dari ide yang masih mentah sampai siap dinikmati, tanggung jawabnya ada pada saya. Situs ini contohnya.</p>
+            <p class="cv-intro">Kalau idenya dari saya, saya kerjakan sendiri sampai selesai: merancang, merencanakan, membangun, dan mempelajari apa pun yang belum saya kuasai. Kalau idenya dari pihak lain, kita adu gagasan dulu: saya riset, dan begitu cocok, baru kita jalankan. Dari ide mentah sampai siap dinikmati, tanggung jawabnya ada pada saya. Situs ini contohnya.</p>
           </div>
-          <ol class="tt-do">
-            <li><span class="tt-n">01</span><b>UI/UX dan Web</b><span>Merancang alur dan tampilan, lalu menulis HTML, CSS, dan JavaScript dari nol.</span></li>
-            <li><span class="tt-n">02</span><b>Desain Visual</b><span>Poster, foto yang didesain, dan konten visual.</span></li>
-            <li><span class="tt-n">03</span><b>Materi dan Dokumen</b><span>Riset materi, presentasi, dan dokumen yang tertata rapi.</span></li>
-          </ol>
+          <!-- KARYA UNGGULAN: tiap poin bisa diketuk untuk membuka buktinya (angka dibaca langsung dari halaman). Poin ke-5 sekaligus menyalakan tampilan blueprint -->
+          <aside class="ap-panel" id="proofCard">
+            <span class="cv-spec-lbl mono">KARYA UNGGULAN</span>
+            <h3 class="ap-title">Karya yang merepresentasikan saya sepenuhnya: situs CV ini.</h3>
+            <p class="ap-sub">Dirancang untuk memperkenalkan saya kepada beragam orang, dengan tetap nyaman dibaca dan dipakai.</p>
+            <p class="ap-hint mono">Ketuk tiap poin untuk melihat buktinya.</p>
+            <ol class="ap-rows">
+              <li class="ap-row">
+                <button type="button" class="ap-q" aria-expanded="false" aria-controls="apx1" onclick="AP.toggle(this)"><span class="ap-n mono">01</span><b>Komunikasi yang jelas</b><span class="ap-d">Informasi disusun ringkas dan mudah dicerna, dengan istilah teknis yang dijelaskan serta dua bahasa, Indonesia dan Inggris.</span><span class="ap-plus" aria-hidden="true"></span></button>
+                <div class="ap-proof" id="apx1"><div><span class="ap-detail mono" id="ap1"></span></div></div>
+              </li>
+              <li class="ap-row">
+                <button type="button" class="ap-q" aria-expanded="false" aria-controls="apx2" onclick="AP.toggle(this)"><span class="ap-n mono">02</span><b>Kreativitas yang berkesan</b><span class="ap-d">Intro bergerak, gradasi lembut, dan interaksi halus, semuanya dirancang dari nol tanpa template, supaya setiap kunjungan terasa punya identitas.</span><span class="ap-plus" aria-hidden="true"></span></button>
+                <div class="ap-proof" id="apx2"><div><span class="ap-detail mono" id="ap2"></span></div></div>
+              </li>
+              <li class="ap-row">
+                <button type="button" class="ap-q" aria-expanded="false" aria-controls="apx3" onclick="AP.toggle(this)"><span class="ap-n mono">03</span><b>Efisien dan langsung ke inti</b><span class="ap-d">Identitas, bidang, dan kontak sudah terbaca di layar pertama, tanpa scroll panjang dan tanpa membuang waktu.</span><span class="ap-plus" aria-hidden="true"></span></button>
+                <div class="ap-proof" id="apx3"><div><span class="ap-detail mono" id="ap3"></span></div></div>
+              </li>
+              <li class="ap-row">
+                <button type="button" class="ap-q" aria-expanded="false" aria-controls="apx4" onclick="AP.toggle(this)"><span class="ap-n mono">04</span><b>Dirancang untuk kenyamanan</b><span class="ap-d">Satu bagian per layar, menu dalam jangkauan jempol, mengikuti pengaturan kurangi gerakan, serta bebas iklan dan pop-up.</span><span class="ap-plus" aria-hidden="true"></span></button>
+                <div class="ap-proof" id="apx4"><div><span class="ap-detail mono" id="ap4"></span></div></div>
+              </li>
+              <li class="ap-row" data-bp="1">
+                <button type="button" class="ap-q" aria-expanded="false" aria-controls="apx5" onclick="AP.toggle(this)"><span class="ap-n mono">05</span><b>Kedalaman bagi yang ingin tahu</b><span class="ap-d">Setiap klaim di atas bisa diperiksa langsung, sampai ke ukuran tiap elemen di halaman ini.</span><span class="ap-plus" aria-hidden="true"></span></button>
+                <div class="ap-proof" id="apx5"><div><span class="ap-detail mono" id="ap5"></span></div></div>
+              </li>
+            </ol>
+            <p class="ap-note mono">Dibangun dengan bantuan AI sebagai alat. Konsep, alur berpikir, dan keputusan desainnya dari saya.</p>
+          </aside>
         </div>
-        <div class="cv-card cv-proof s6 rv" id="proofCard">
-          <div class="proof-head">
-            <div class="proof-title">
-              <span class="cv-spec-lbl mono">SALAH SATU MAHAKARYA</span>
-              <h3 class="ap-title">Salah satu mahakarya saya adalah ini: web CV.</h3>
-              <p class="ap-sub">Sebuah web yang dirancang untuk menjelaskan diri saya kepada banyak orang dengan berbagai tipe, tanpa kehilangan rasa nyaman.</p>
-            </div>
-            <button type="button" class="bp-btn" id="bpBtn" aria-pressed="false" onclick="BP.toggle()"><span class="bp-off">Aktifkan mode serius</span><span class="bp-on">Kembali ke mode biasa</span></button>
-          </div>
-          <ol class="ap-list">
-            <li><span class="tt-n mono">01</span><div><b>Kebahasaan</b><span>Informatif dan mudah dicerna: kalimatnya pendek, istilah teknis dijelaskan, dan tersedia dalam dua bahasa.</span><span class="ap-detail mono" id="ap1"></span></div></li>
-            <li><span class="tt-n mono">02</span><div><b>Kreatif</b><span>Intro yang bergerak, gradasi lembut, dan interaksi kecil, supaya membuka situs ini jadi pengalaman yang berkesan.</span><span class="ap-detail mono" id="ap2"></span></div></li>
-            <li><span class="tt-n mono">03</span><div><b>Teknokratis dan to the point</b><span>Dalam satu layar pertama sudah jelas siapa saya, bidang saya, dan cara menghubungi saya. Tanpa banyak scroll, tanpa buang waktu.</span><span class="ap-detail mono" id="ap3"></span></div></li>
-            <li><span class="tt-n mono">04</span><div><b>Psikologis dan kebiasaan</b><span>Dirancang supaya nyaman: satu bagian per layar, menu dalam jangkauan jempol, mengikuti pengaturan "kurangi gerakan", tanpa iklan dan tanpa pop-up.</span><span class="ap-detail mono" id="ap4"></span></div></li>
-            <li><span class="tt-n mono">05</span><div><b>Detail brutal</b><span>Kalau ingin tahu lebih dalam, ada mode serius yang memperlihatkan seberapa banyak informasi yang bisa digali dari satu halaman.</span><span class="ap-detail mono" id="ap5"></span></div></li>
-          </ol>
+        <div class="cv-card s3 rv">
+          <span class="cv-spec-lbl mono">BELAJAR MANDIRI</span>
+          <h3 class="bk-title">Dua tahun belajar mandiri, tanpa platform berbayar.</h3>
+          <p class="cv-spec-val bk-p">Saya membangun platform belajar sendiri sebagai pengganti platform berbayar, supaya belajar tetap gratis.</p>
+          <ol class="flow"><li><span class="flow-n">1</span><span class="flow-t">Bahan ajar disusun sendiri dalam bentuk PDF</span></li><li><span class="flow-n">2</span><span class="flow-t">Bank soal sekitar 150 butir, dibuat lewat NotebookLM</span></li><li><span class="flow-n">3</span><span class="flow-t">Puluhan konten edukasi dengan desain grafis</span></li></ol>
+          <p class="bk-meta mono">Indonesia · Inggris · Matematika · Fisika · Kimia · Biologi</p>
+        </div>
+        <div class="cv-card s3 rv">
+          <span class="cv-spec-lbl mono">PRODUSER</span>
+          <h3 class="bk-title">Produser film tugas akhir DKV.</h3>
+          <div class="rank"><b>#1</b><span>dari 9 kelompok di kelas</span></div>
+          <p class="cv-spec-val bk-p">Memimpin kelompok 10 orang dari rencana sampai hasil akhir.</p>
         </div>
         <div class="cv-card s6 rv">
           <span class="cv-spec-lbl">PENDIDIKAN</span>
@@ -141,6 +163,17 @@
               <div><span class="edu-tag"><i class="dot"></i><span>Sekarang</span></span><b>SMKN 3 Singaraja</b><span>Desain Komunikasi Visual</span><span>Lulus 2027</span></div>
             </li>
           </ol>
+        </div>
+        <div class="cv-card s6 rv">
+          <span class="cv-spec-lbl mono">CARA BEKERJA SAMA</span>
+          <ul class="cw-grid"><li><b>Jelas di awal</b><span>Brief, ruang lingkup, dan imbalan disepakati sebelum mulai.</span></li><li><b>Waktu yang dihormati</b><span>Jam kerja ditentukan bersama dan dipatuhi kedua pihak.</span></li><li><b>Langsung ke inti</b><span>Komunikasi lugas, tanpa kode-kodean, dengan respons cepat.</span></li></ul>
+        </div>
+        <div class="cv-card cv-close s6 rv">
+          <div class="cv-close-t"><h3>Sepertinya bisa diajak kerja sama?</h3><p>Terbuka untuk proyek dan jasa konsultasi. Lihat dulu hasilnya, lalu ajak saya ngobrol.</p></div>
+          <div class="hero-actions cv-close-a">
+            <a href="#porto" class="btn-solid"><span>Lihat Portofolio</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a href="#kontak" class="link-line">Langsung hubungi</a>
+          </div>
         </div>
       </div>
     </div>
@@ -167,7 +200,7 @@
         <div>
           <p class="porto-num">01 / Digital · Sistem</p>
           <p class="porto-title">Web CV Personal (Proyek Ini)</p>
-          <p class="porto-desc">Dibuat dari nol pakai HTML, CSS, dan JS biasa, tanpa framework.</p>
+          <p class="porto-desc">Dirancang oleh saya dan dibangun dengan bantuan AI, memakai HTML, CSS, dan JS biasa, tanpa framework.</p>
           <div class="porto-tags"><span>HTML/CSS/JS</span><span>UI/UX</span><span>System Design</span></div>
           <span class="porto-live">● Situs yang lagi kamu buka</span>
         </div>
@@ -194,7 +227,7 @@
   <section class="sec" id="tl">
     <div class="wrap">
       <div class="sec-head rv"><span class="sec-num">05</span><h2>Pengalaman</h2></div>
-      <p class="overview rv">Perjalanan singkatku di desain dan web.</p>
+      <p class="overview rv">Perjalanan singkat saya di desain dan web.</p>
 
       <div class="tl-item rv">
         <div><div class="tl-year">2026 sampai sekarang</div><span class="tl-badge">Berlangsung</span></div>
