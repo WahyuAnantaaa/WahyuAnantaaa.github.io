@@ -1,4 +1,4 @@
-/* ===== script.js ===== */
+/* ===== script.js (MULAI) ===== */
 'use strict';
 
 if('IntersectionObserver' in window){
@@ -224,9 +224,15 @@ var WAHYU_LOGOS = {
   // nama baru mulai berjalan setelah font Anton benar-benar siap (kalau tidak, huruf berganti rupa mendadak di tengah jalan); panjang jalur disesuaikan lebar layar
   var fontsReady = new Promise(function(res){ var d = false, ok = function(){ if (!d) { d = true; res(); } }; setTimeout(ok, 2800); if (document.fonts && document.fonts.load) document.fonts.load('400 1em Anton').then(ok, ok); else ok(); });
   function buildTracks(){
-    var sp = stage.querySelector('.st-track span'), w = sp ? sp.getBoundingClientRect().width : 0, reps = w ? Math.max(1, Math.ceil(innerWidth / w)) : 2, g = ('<span>' + NAME + '</span>').repeat(reps);
-    stage.querySelectorAll('.st-track').forEach(function(t){ t.innerHTML = g + g; });
+    // NAMA TANPA HABIS: jalur selalu lebih panjang dari layar (+1 salinan cadangan), dan dibangun ulang saat ukuran layar/zoom berubah.
+    // Kecepatan gulir dijaga sama seperti semula lewat durasi animasi yang menyesuaikan jumlah salinan.
+    var sp = stage.querySelector('.st-track span'), w = sp ? sp.getBoundingClientRect().width : 0,
+        need = w ? Math.max(1, Math.ceil(innerWidth / w)) : 2, reps = need + 1, g = ('<span>' + NAME + '</span>').repeat(reps);
+    stage.querySelectorAll('.st-track').forEach(function(t){ t.innerHTML = g + g; t.style.animationDuration = (50 * reps / need) + 's'; });
   }
+  var rbt = 0;
+  function rebuildTracks(){ clearTimeout(rbt); rbt = setTimeout(function(){ if (p0.classList.contains('done')) buildTracks(); }, 250); }
+  window.addEventListener('resize', rebuildTracks); window.addEventListener('orientationchange', rebuildTracks);
   var gwait = setInterval(function(){ if (p0.classList.contains('done')) { clearInterval(gwait); fontsReady.then(function(){ buildTracks(); setTimeout(startGo, reduced ? 0 : 850); }); } }, 100);
   // jeda animasi + musik saat panggung tidak terlihat
   var inView = true;
@@ -330,7 +336,7 @@ var I18N = (function(){
     'Situs ini saya buat sendiri. Saya bekerja paling baik dengan brief yang jelas dan tenggat yang masuk akal.':'I built this site myself. I work best with a clear brief and a reasonable deadline.',
     'UI/UX dan Web':'UI/UX and Web','Merancang alur dan tampilan, lalu menulis HTML, CSS, dan JavaScript dari nol.':'Designing flows and interfaces, then writing HTML, CSS, and JavaScript from scratch.',
     'Materi dan Dokumen':'Materials and Documents','Poster, foto yang didesain, dan konten visual.':'Posters, designed photos, and visual content.','Riset materi, presentasi, dan dokumen yang tertata rapi.':'Researching materials, presentations, and neatly organized documents.',
-    '<mark>Ide gila</mark> <span class="tt-arrow">→</span> <mark>karya nyata</mark>.':'<mark>Crazy ideas</mark> <span class="tt-arrow">→</span> <mark>real work</mark>.',
+    '<mark>Ide gila</mark> <span class="tt-arrow">→</span> <mark>karya nyata</mark>':'<mark>Crazy ideas</mark> <span class="tt-arrow">→</span> <mark>real work</mark>',
     'Kreatif, teknis, end-to-end.':'Creative, technical, end to end.',
     'Kalau idenya dari saya, saya kerjakan sendiri sampai selesai. Apa pun yang dibutuhkan, dari merancang, merencanakan, sampai membangun, saya lakukan, dan kalau ada yang belum bisa, saya pelajari dulu. Dari ide yang masih mentah sampai siap dinikmati, tanggung jawabnya ada pada saya. Situs ini contohnya.':'If the idea is mine, I see it through myself. Whatever it takes, from designing and planning to building, I do it, and if there is something I cannot do yet, I learn it first. From a raw idea to something ready to enjoy, the responsibility is mine. This site is an example.',
     'SALAH SATU MAHAKARYA':'ONE OF MY MASTERPIECES','Salah satu mahakarya saya adalah ini: web CV.':'One of my masterpieces is this one: the web CV.','Sebuah web yang dirancang untuk menjelaskan diri saya kepada banyak orang dengan berbagai tipe, tanpa kehilangan rasa nyaman.':'A website designed to explain me to many kinds of people, without losing the feeling of comfort.','Aktifkan mode serius':'Turn on serious mode','Kembali ke mode biasa':'Back to normal mode',
@@ -340,6 +346,10 @@ var I18N = (function(){
     'Dalam satu layar pertama sudah jelas siapa saya, bidang saya, dan cara menghubungi saya. Tanpa banyak scroll, tanpa buang waktu.':'Within the first screen it is clear who I am, what I do, and how to reach me. No long scrolling, no wasted time.',
     'Dirancang supaya nyaman: satu bagian per layar, menu dalam jangkauan jempol, mengikuti pengaturan "kurangi gerakan", tanpa iklan dan tanpa pop-up.':'Designed to feel comfortable: one section per screen, a menu within thumb reach, respecting the reduce-motion setting, no ads and no pop-ups.',
     'Kalau ingin tahu lebih dalam, ada mode serius yang memperlihatkan seberapa banyak informasi yang bisa digali dari satu halaman.':'If you want to dig deeper, a serious mode shows how much information can be found on a single page.',
+    'KARYA UNGGULAN':'FEATURED WORK','Karya unggulan saya: situs CV ini.':'Featured work: this CV site.','Dirancang untuk memperkenalkan saya kepada beragam orang, dengan tetap nyaman dibaca dan dipakai.':'Designed to introduce me to many kinds of people, while staying comfortable to read and use.','Lihat angka dan ukuran asli di balik halaman ini.':'See the real numbers and sizes behind this page.','Kreatif · Teknis · End-to-end':'Creative · Technical · End-to-end','Merancang alur dan tampilan, membangun web dari nol, serta menyusun poster, materi, dan dokumen yang rapi.':'Designing flows and interfaces, building the web from scratch, and putting together posters, materials, and neat documents.','Komunikasi yang jelas':'Clear communication','Informasi disusun ringkas dan mudah dicerna, dengan istilah teknis yang dijelaskan serta dua bahasa, Indonesia dan Inggris.':'Information is organized briefly and is easy to digest, with technical terms explained and two languages, Indonesian and English.','Kreativitas yang berkesan':'Memorable creativity','Intro bergerak, gradasi lembut, dan interaksi halus, supaya setiap kunjungan terasa memiliki identitas.':'A moving intro, soft gradients, and gentle interactions, so every visit feels like it has an identity.','Efisien dan langsung ke inti':'Efficient and straight to the point','Identitas, bidang, dan kontak sudah terbaca di layar pertama, tanpa scroll panjang dan tanpa membuang waktu.':'Identity, field, and contact are readable on the first screen, with no long scrolling and no wasted time.','Dirancang untuk kenyamanan':'Designed for comfort','Satu bagian per layar, menu dalam jangkauan jempol, mengikuti pengaturan kurangi gerakan, serta bebas iklan dan pop-up.':'One section per screen, a menu within thumb reach, respecting the reduce-motion setting, and free of ads and pop-ups.','Kedalaman bagi yang ingin tahu':'Depth for the curious','Mode serius menampilkan angka dan ukuran asli di balik halaman, sehingga setiap klaim dapat diperiksa.':'Serious mode shows the real numbers and sizes behind the page, so every claim can be checked.',
+    'Karya yang merepresentasikan saya sepenuhnya: situs CV ini.':'The work that fully represents me: this CV site.','Ketuk tiap poin untuk melihat buktinya.':'Tap each point to see the proof.','Setiap klaim di atas bisa diperiksa langsung, sampai ke ukuran tiap elemen di halaman ini.':'Every claim above can be checked directly, down to the size of every element on this page.',
+    'Kalau idenya dari saya, saya kerjakan sendiri sampai selesai: merancang, merencanakan, membangun, dan mempelajari apa pun yang belum saya kuasai. Kalau idenya dari pihak lain, kita adu gagasan dulu: saya riset, dan begitu cocok, baru kita jalankan. Dari ide mentah sampai siap dinikmati, tanggung jawabnya ada pada saya. Situs ini contohnya.':'If the idea is mine, I see it through myself: designing, planning, building, and learning whatever I have not mastered yet. If the idea comes from someone else, we trade ideas first: I research it, and once it fits, we run with it. From a raw idea to something ready to enjoy, the responsibility is mine. This site is an example.','Intro bergerak, gradasi lembut, dan interaksi halus, semuanya dirancang dari nol tanpa template, supaya setiap kunjungan terasa punya identitas.':'A moving intro, soft gradients, and gentle interactions, all designed from scratch without a template, so every visit feels like it has an identity.','Dibangun dengan bantuan AI sebagai alat. Konsep, keputusan desain, dan arah kerjanya dari saya.':'Built with AI as a tool. The concept, design decisions, and direction are mine.','BUKTI LAIN':'OTHER PROOF','Dua tahun belajar mandiri, tanpa platform berbayar.':'Two years of self-learning, without paid platforms.','Saya membangun platform belajar sendiri sebagai pengganti platform berbayar, supaya belajar tetap gratis, dan menjalaninya secara konsisten selama dua tahun. Hasil belajarnya saya dokumentasikan lewat konten edukasi dengan desain grafis yang nyaman dibaca dan isi yang masuk akal.':'I built my own learning platform as a replacement for paid ones, so learning stays free, and I have kept at it consistently for two years. I document what I learn through educational content with graphic design that is comfortable to read and content that makes sense.','Bahasa Indonesia':'Indonesian','Bahasa Inggris':'English','Matematika':'Mathematics','Fisika':'Physics','Kimia':'Chemistry','Biologi':'Biology','Sepertinya bisa diajak kerja sama?':'Seem like someone you could work with?','Lihat dulu hasilnya, lalu ajak saya ngobrol.':'See the results first, then reach out to me.','Lihat Portofolio':'See the portfolio','Langsung hubungi':'Reach out directly',
+    'Dibangun dengan bantuan AI sebagai alat. Konsep, alur berpikir, dan keputusan desainnya dari saya.':'Built with AI as a tool. The concept, line of thinking, and design decisions are mine.','Siswa DKV yang berani masuk ke ranah teknis. Saya merancang tampilan, lalu membangunnya sampai jadi, dari ide mentah sampai siap dinikmati.':'A DKV student who dares to step into the technical side. I design the look, then build it until it works, from a raw idea to something ready to enjoy.','Terbuka untuk proyek dan jasa konsultasi. Lihat dulu hasilnya, lalu ajak saya ngobrol.':'Open to projects and consulting. See the results first, then reach out to me.','BELAJAR MANDIRI':'SELF-STUDY','Saya membangun platform belajar sendiri sebagai pengganti platform berbayar, supaya belajar tetap gratis.':'I built my own learning platform to replace paid ones, so learning stays free.','Bahan ajar disusun sendiri dalam bentuk PDF':'Study materials I compile myself as PDFs','Bank soal sekitar 150 butir, dibuat lewat NotebookLM':'A question bank of about 150 items, generated with NotebookLM','Puluhan konten edukasi dengan desain grafis':'Dozens of educational posts with graphic design','Indonesia · Inggris · Matematika · Fisika · Kimia · Biologi':'Indonesian · English · Mathematics · Physics · Chemistry · Biology','PRODUSER':'PRODUCER','Produser film tugas akhir DKV.':'Producer of the DKV final-project film.','dari 9 kelompok di kelas':'out of 9 groups in the class','Memimpin kelompok 10 orang dari rencana sampai hasil akhir.':'Led a group of 10 from plan to final result.','CARA BEKERJA SAMA':'WORKING TOGETHER','Jelas di awal':'Clear from the start','Brief, ruang lingkup, dan imbalan disepakati sebelum mulai.':'Brief, scope, and compensation are agreed before starting.','Waktu yang dihormati':'Time that is respected','Jam kerja ditentukan bersama dan dipatuhi kedua pihak.':'Working hours are set together and kept by both sides.','Langsung ke inti':'Straight to the point','Komunikasi lugas, tanpa kode-kodean, dengan respons cepat.':'Direct communication, no guessing games, with quick responses.',
     'Dulu':'Before','Sekarang':'Now','Jenjang menengah pertama':'Junior high school','Desain Visual':'Visual Design','Tentang':'About','CERITA':'STORY','PENGALAMAN':'EXPERIENCE','Situs yang lagi kamu buka ini bikinan sendiri.':'This site you are looking at, I built myself.','Desain Komunikasi Visual':'Visual Communication Design','Lihat perjalanan lengkap':'See the full journey','Lulus 2027':'Graduating 2027','Kreatif':'Creative',
     'Siswa DKV dari Singaraja yang suka merancang tampilan, lalu menulis kodenya sendiri. Masih belajar, masih sering salah, tapi tiap minggu selalu ada yang baru dibuat.':'A DKV student from Singaraja who likes designing the look and then writing the code himself. Still learning, still making mistakes, but something new gets built every week.',
     'Siswa DKV yang suka ngoding. Web ini aku bikin sendiri.':'A DKV student who likes coding. I built this site myself.',
@@ -364,7 +374,7 @@ var I18N = (function(){
     'Screenshot Web CV Ini':'Screenshot of this CV site',
     '01 / Digital · Sistem':'01 / Digital · Systems',
     'Web CV Personal (Proyek Ini)':'Personal CV Site (This Project)',
-    'Dibuat dari nol pakai HTML, CSS, dan JS biasa, tanpa framework.':'Built from scratch with plain HTML, CSS, and JS, no framework.',
+    'Dirancang oleh saya dan dibangun dengan bantuan AI, memakai HTML, CSS, dan JS biasa, tanpa framework.':'Designed by me and built with AI assistance, using plain HTML, CSS, and JS, no framework.',
     '● Situs yang lagi kamu buka':'● The site you’re on right now',
     'Foto Karya Visual':'Visual work photo',
     'Karya segera hadir':'Work coming soon',
@@ -372,7 +382,7 @@ var I18N = (function(){
     'Segitu dulu karyanya.':'That’s the work so far.',
     'Lanjut ke pengalaman ↓':'On to my experience ↓',
     'Pengalaman':'Experience',
-    'Perjalanan singkatku di desain dan web.':'A short look at my path in design and web.',
+    'Perjalanan singkat saya di desain dan web.':'A short look at my path in design and web.',
     '2026 sampai sekarang':'2026 to present','2025 sampai sekarang':'2025 to present',
     'Berlangsung':'Ongoing',
     'Mengerjakan Web CV Ini':'Working on This CV Site',
@@ -461,16 +471,16 @@ var SkillCat = (function(){
   var DATA = {
     hard: {
       title:'Hardskill',
-      overview:'Hardskill aku dibagi dua. <strong>Teknis</strong>: Microsoft Office dan HTML/CSS. <strong>Kreatif</strong>: Adobe, Canva, CapCut, dan CorelDRAW.',
+      overview:'Hardskill saya dibagi dua. <strong>Teknis</strong>: Microsoft Office dan perancangan web. <strong>Kreatif</strong>: Adobe, Canva, CapCut, dan CorelDRAW.',
       tek:[
         {name:'Microsoft Word',lvl:'Mahir',desc:'Dokumen profesional, laporan, dan penulisan terstruktur.',ex:['Laporan tugas sekolah dengan format akademik yang rapi.','Dokumen CV dan surat lamaran atau formal lainnya.']},
         {name:'Microsoft Excel',lvl:'Mahir',desc:'Spreadsheet, analisis data, dan visualisasi angka.',ex:['Rekap dan hitung data kegiatan organisasi atau sekolah.','Anggaran sederhana untuk proyek kelas.']},
         {name:'Microsoft PowerPoint',lvl:'Mahir',desc:'Presentasi profesional dan komunikasi visual terstruktur.',ex:['Slide presentasi untuk tugas kelompok dan individu.','Materi pitch ide atau konsep proyek.']},
-        {name:'HTML & CSS',lvl:'Menengah',desc:'Membangun tampilan web dari nol, termasuk web CV ini.',ex:['Membangun seluruh web CV ini dari nol, struktur sampai animasi.','Belajar CSS grid dan transition lewat eksperimen kecil berulang.']}
+        {name:'UI/UX & Perancangan Web',lvl:'Menengah',desc:'Merancang alur dan tampilan web, lalu mengarahkan pembuatannya bersama AI.',ex:['Merancang konsep, alur, dan tampilan seluruh web CV ini.','Menguji hasilnya terus-menerus sampai nyaman dipakai di laptop dan HP.']}
       ],
       kre:[
-        {name:'Adobe Photoshop',lvl:'Mahir',desc:'Photo editing, compositing, dan manipulasi digital.',ex:['Retouching foto profil untuk brand personal dan materi Instagram.','Poster tugas kelas DKV, compositing elemen visual untuk presentasi.']},
-        {name:'Adobe Illustrator',lvl:'Mahir',desc:'Desain vektor, ilustrasi, dan identitas visual.',ex:['Logo dan ikon custom untuk proyek identitas visual sekolah.','Elemen grafis vektor yang dipakai di web CV ini.']},
+        {name:'Adobe Photoshop',lvl:'Menengah',desc:'Photo editing, compositing, dan manipulasi digital.',ex:['Retouching foto profil untuk brand personal dan materi Instagram.','Poster tugas kelas DKV, compositing elemen visual untuk presentasi.']},
+        {name:'Adobe Illustrator',lvl:'Menengah',desc:'Desain vektor, ilustrasi, dan identitas visual.',ex:['Logo dan ikon custom untuk proyek identitas visual sekolah.','Elemen grafis vektor yang dipakai di web CV ini.']},
         {name:'CapCut',lvl:'Mahir',desc:'Video editing mobile dan konten kreatif.',ex:['Edit video pendek untuk Instagram dan TikTok pribadi.','Dokumentasi kegiatan sekolah jadi konten singkat.']},
         {name:'Premiere Pro',lvl:'Menengah',desc:'Video editing profesional dan produksi konten.',ex:['Ikut menyunting video profil untuk keperluan sekolah.','Latihan color grading di waktu luang.']},
         {name:'Canva',lvl:'Mahir',desc:'Desain grafis cepat dan presentasi visual.',ex:['Slide presentasi tugas kelompok dengan template konsisten.','Desain feed dan story Instagram pribadi.']},
@@ -479,11 +489,11 @@ var SkillCat = (function(){
     },
     soft: {
       title:'Softskill',
-      overview:'Softskill aku juga dibagi dua. <strong>Teknis</strong>: cara berpikir dan menyelesaikan masalah. <strong>Kreatif</strong>: bekerja dengan orang lain dan menyampaikan ide.',
+      overview:'Softskill saya juga dibagi dua. <strong>Teknis</strong>: cara berpikir dan menyelesaikan masalah. <strong>Kreatif</strong>: bekerja dengan orang lain dan menyampaikan ide.',
       tek:[
-        {name:'Berpikir Kritis',lvl:'Mahir',desc:'Memikirkan masalah dulu sebelum bertindak.',ex:['Mempertimbangkan alasan di balik tiap pilihan desain, bukan cuma insting.','Menelusuri akar masalah saat bug muncul, bukan asal coba-coba.']},
+        {name:'Berpikir Kritis',lvl:'Mahir',desc:'Memikirkan masalah dulu sebelum bertindak.',ex:['Mempertimbangkan alasan di balik tiap pilihan desain, bukan cuma insting.','Membandingkan beberapa opsi dan saling menguji jawabannya sebelum memutuskan.']},
         {name:'Analitis',lvl:'Mahir',desc:'Membaca data dan pola sebelum mengambil keputusan.',ex:['Merancang struktur Part-per-Part yang rapi dan mudah diperluas.','Riset referensi desain sebelum menerapkan pola visual baru.']},
-        {name:'Problem Solving',lvl:'Mahir',desc:'Mencari jalan keluar saat ada masalah.',ex:['Melacak dan memperbaiki bug carousel yang salah trigger klik.','Mencari pendekatan baru saat satu arah desain mentok.']},
+        {name:'Problem Solving',lvl:'Mahir',desc:'Mencari jalan keluar saat ada masalah.',ex:['Menemukan masalah di tampilan dan mengarahkan perbaikannya sampai tuntas.','Mencari pendekatan baru saat satu arah desain mentok.']},
         {name:'Komunikasi',lvl:'Mahir',desc:'Menyampaikan ide dengan jelas.',ex:['Menjelaskan konsep desain ke guru dan teman dengan runtut.','Menyampaikan kebutuhan proyek dengan jelas saat kerja bareng AI.']}
       ],
       kre:[
@@ -499,16 +509,16 @@ var SkillCat = (function(){
   'Microsoft Word':{d:'Professional documents, reports, and structured writing.',x:['School assignment reports in a clean academic format.','CV documents and application or other formal letters.']},
   'Microsoft Excel':{d:'Spreadsheets, data analysis, and visualizing numbers.',x:['Recapping and calculating organization or school activity data.','Simple budgets for class projects.']},
   'Microsoft PowerPoint':{d:'Professional presentations and structured visual communication.',x:['Presentation slides for group and individual assignments.','Pitch material for ideas or project concepts.']},
-  'HTML & CSS':{d:'Building web interfaces from scratch, including this CV site.',x:['Built this entire CV site from scratch, from structure to animation.','Learned CSS grid and transitions through repeated small experiments.']},
+  'UI/UX & Perancangan Web':{n:'UI/UX & Web Design',d:'Designing the flow and look of the web, then directing its build together with AI.',x:['Designing the concept, flow, and look of this entire CV site.','Testing the result repeatedly until it feels comfortable on laptop and phone.']},
   'Adobe Photoshop':{d:'Photo editing, compositing, and digital manipulation.',x:['Retouching profile photos for personal branding and Instagram material.','DKV class assignment posters, compositing visual elements for presentations.']},
   'Adobe Illustrator':{d:'Vector design, illustration, and visual identity.',x:['Custom logos and icons for school visual identity projects.','Vector graphic elements used in this CV site.']},
   'CapCut':{d:'Mobile video editing and creative content.',x:['Editing short videos for personal Instagram and TikTok.','Turning school activity footage into short content.']},
   'Premiere Pro':{d:'Professional video editing and content production.',x:['Co-editing a profile video for school purposes.','Practicing color grading in spare time.']},
   'Canva':{d:'Quick graphic design and visual presentations.',x:['Group assignment slides with consistent templates.','Designing a personal Instagram feed and stories.']},
   'CorelDRAW':{d:'Vector design and print publication layout.',x:['Laying out school print materials such as banners and pamphlets.','Exploring vector techniques outside Illustrator.']},
-  'Berpikir Kritis':{n:'Critical Thinking',d:'Thinking a problem through before acting.',x:['Weighing the reasoning behind each design choice, not just instinct.','Tracing root causes when bugs appear, instead of guessing.']},
+  'Berpikir Kritis':{n:'Critical Thinking',d:'Thinking a problem through before acting.',x:['Weighing the reasoning behind each design choice, not just instinct.','Comparing several options and cross-checking the answers before deciding.']},
   'Analitis':{n:'Analytical',d:'Reading data and patterns before making decisions.',x:['Designing a Part-by-Part structure that is clean and easy to extend.','Researching design references before applying a new visual pattern.']},
-  'Problem Solving':{d:'Finding a way out when something goes wrong.',x:['Tracking down and fixing a carousel bug that triggered clicks wrongly.','Finding a new approach when one design direction stalls.']},
+  'Problem Solving':{d:'Finding a way out when something goes wrong.',x:['Spotting problems in the interface and directing the fix until it is resolved.','Finding a new approach when one design direction stalls.']},
   'Komunikasi':{n:'Communication',d:'Explaining ideas clearly.',x:['Explaining design concepts to teachers and peers in a clear order.','Stating project needs clearly when working with AI.']},
   'Empati':{n:'Empathy',d:'Being sensitive to what other people need.',x:['Digging into the real need behind a design request before executing.','Staying attuned to team dynamics during group projects.']},
   'Kreativitas':{n:'Creativity',d:'Coming up with new ideas and approaches.',x:['Designing the concept and look of this CV site.','Finding different approaches to creative school assignments.']},
@@ -516,7 +526,7 @@ var SkillCat = (function(){
   'Storytelling':{d:'Getting a message across through story.',x:['Ordering the content of this CV site from intro to contact.','Writing captions with tone and message, not just description.']}
 };
   var OVERVIEW_EN = {
-    hard:'My hard skills split into two. <strong>Technical</strong>: Microsoft Office and HTML/CSS. <strong>Creative</strong>: Adobe, Canva, CapCut, and CorelDRAW.',
+    hard:'My hard skills split into two. <strong>Technical</strong>: Microsoft Office and web design. <strong>Creative</strong>: Adobe, Canva, CapCut, and CorelDRAW.',
     soft:'My soft skills split into two as well. <strong>Technical</strong>: how I think and solve problems. <strong>Creative</strong>: working with others and getting ideas across.'
   };
   var LVL_EN = { 'Mahir':'Proficient', 'Menengah':'Intermediate' };
@@ -924,7 +934,8 @@ I18N.init();
     th.style.height = tH + 'px';
     th.style.transform = 'translateY(' + (window.scrollY / max() * (H - tH)) + 'px)';
     var act = null; secs.forEach(function(s){ var r = s.getBoundingClientRect(); if (r.top <= vh() * .4 && r.bottom > vh() * .4) act = s; });
-    var t = act ? nameOf(act) : '';
+    var hd = act && act.querySelector('.sec-head'), seen = hd && hd.getBoundingClientRect().bottom > 64;   // judul aslinya masih terlihat: pil disembunyikan agar tidak menimpa
+    var t = (act && !seen) ? nameOf(act) : '';
     if (t !== cur){ cur = t; title.classList.remove('show'); setTimeout(function(){ title.textContent = cur; title.classList.toggle('show', !!cur); }, 140); }
   }
   function tick(){ if (!raf) raf = requestAnimationFrame(function(){ raf = 0; update(); }); }
@@ -937,10 +948,10 @@ I18N.init();
   sl.addEventListener('pointerdown', function(e){ if (e.target !== sl) return; var r = sl.getBoundingClientRect(); window.scrollTo({top: (e.clientY - r.top) / r.height * max(), behavior:'smooth'}); });
 })();
 
-/* Tentang: kartu mahakarya + MODE SERIUS. Semua angka dibaca langsung dari halaman ini (tidak dikarang) */
-window.BP = (function(){
-  var sec = document.getElementById('cv'), btn = document.getElementById('bpBtn'), on = false, t = 0;
-  var SEL = '.cv-card,.edu-item,.tt-do li,.ap-list li';
+/* Tentang: karya unggulan. Tiap poin bisa diketuk untuk membuka buktinya. Semua angka dibaca langsung dari halaman ini (tidak dikarang) */
+window.AP = (function(){
+  var sec = document.getElementById('cv'), bp = false, t = 0;
+  var SEL = '.cv-card,.edu-item,.ap-panel,.ap-row';
   function en(){ return document.documentElement.lang === 'en'; }
   function mode(){
     var st = document.querySelector('.stage'), low, lite;   // kelas lite/low diset sistem tier di panggung intro
@@ -960,15 +971,23 @@ window.BP = (function(){
     Array.prototype.forEach.call(document.styleSheets, function(ss){ try { Array.prototype.forEach.call(ss.cssRules, function(r){ rules++; if (r.type === 7) kf++; }); } catch (e) {} });
     return { rules: rules, kf: kf };
   }
+  function avgWords(){
+    var words = 0, sents = 0;
+    Array.prototype.forEach.call(document.querySelectorAll('section p'), function(p){
+      var tx = (p.textContent || '').trim(); if (!tx) return;
+      tx.split(/[.!?]+(?:\s|$)/).forEach(function(x){ x = x.trim(); if (x.length > 2) { words += x.split(/\s+/).length; sents++; } });
+    });
+    return sents ? (words / sents).toFixed(1).replace('.', en() ? '.' : ',') : '—';
+  }
   function details(){
     var e = en(), s = cssStats(), nodes = document.getElementsByTagName('*').length, secs = document.querySelectorAll('section').length;
     var red = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, L = loadText();
     var d = [
-      secs + (e ? ' sections · 2 languages (ID/EN) · ' + nodes + ' page elements' : ' bagian · 2 bahasa (ID/EN) · ' + nodes + ' elemen halaman'),
-      s.kf + (e ? ' animations · ' + s.rules + ' style rules' : ' animasi · ' + s.rules + ' aturan gaya'),
+      (e ? 'average ' + avgWords() + ' words per sentence · 2 languages (ID/EN) · ' + secs + ' sections' : 'rata-rata ' + avgWords() + ' kata per kalimat · 2 bahasa (ID/EN) · ' + secs + ' bagian'),
+      (e ? 'no template, no framework · ' + s.kf + ' animations · ' + s.rules + ' style rules' : 'tanpa template dan framework · ' + s.kf + ' animasi · ' + s.rules + ' aturan gaya'),
       (e ? 'ready in ' : 'siap dipakai ') + L + (e ? ' · third-party scripts: ' : ' · script pihak ketiga: ') + libs(),
-      (e ? 'mode ' + mode() + ' (automatic) · 2 themes · reduce motion: ' + (red ? 'on' : 'off') : 'mode ' + mode() + ' (otomatis) · 2 tema · kurangi gerakan: ' + (red ? 'aktif' : 'mati')),
-      e ? 'serious mode on: the size of every element is shown' : 'mode serius aktif: ukuran tiap elemen ditampilkan'
+      e ? 'mode ' + mode() + ' (automatic) · 2 themes · reduce motion: ' + (red ? 'on' : 'off') : 'mode ' + mode() + ' (otomatis) · 2 tema · kurangi gerakan: ' + (red ? 'aktif' : 'mati'),
+      e ? 'blueprint on: the size of every element is shown' : 'blueprint aktif: ukuran tiap elemen ditampilkan'
     ];
     d.forEach(function(txt, i){ var el = document.getElementById('ap' + (i + 1)); if (el) el.textContent = txt; });
   }
@@ -978,12 +997,19 @@ window.BP = (function(){
       el.setAttribute('data-dim', Math.round(r.width) + ' × ' + Math.round(r.height) + ' · r' + (parseInt(cs.borderTopLeftRadius, 10) || 0) + ' · p' + (parseInt(cs.paddingLeft, 10) || 0));
     });
   }
-  function toggle(){
-    if (!sec) return;
-    on = !on; sec.classList.toggle('bp', on); if (btn) btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-    if (on) { details(); label(); } else sec.querySelectorAll('[data-dim]').forEach(function(el){ el.removeAttribute('data-dim'); });
+  function setBP(on){
+    bp = on; sec.classList.toggle('bp', on);
+    if (on) label(); else sec.querySelectorAll('[data-dim]').forEach(function(el){ el.removeAttribute('data-dim'); });
   }
-  window.addEventListener('resize', function(){ if (!on) return; clearTimeout(t); t = setTimeout(label, 150); });
-  if ('MutationObserver' in window) new MutationObserver(function(){ if (on) { details(); setTimeout(label, 60); } }).observe(document.documentElement, { attributes:true, attributeFilter:['lang'] });
+  function toggle(btn){
+    var li = btn.closest('.ap-row'), open = !li.classList.contains('open');
+    li.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) details();
+    if (li.getAttribute('data-bp') === '1') setBP(open);   // poin "kedalaman" menyalakan tampilan blueprint
+  }
+  window.addEventListener('resize', function(){ if (!bp) return; clearTimeout(t); t = setTimeout(label, 150); });
+  if ('MutationObserver' in window) new MutationObserver(function(){ details(); if (bp) setTimeout(label, 60); }).observe(document.documentElement, { attributes:true, attributeFilter:['lang'] });
   return { toggle: toggle };
 })();
+
+/* ===== script.js (SELESAI) ===== */
