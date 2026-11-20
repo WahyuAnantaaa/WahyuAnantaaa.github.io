@@ -1,4 +1,3 @@
-/* ===== script.js (MULAI) ===== */
 'use strict';
 
 if('IntersectionObserver' in window){
@@ -350,6 +349,8 @@ var I18N = (function(){
     'Karya yang merepresentasikan saya sepenuhnya: situs CV ini.':'The work that fully represents me: this CV site.','Ketuk tiap poin untuk melihat buktinya.':'Tap each point to see the proof.','Setiap klaim di atas bisa diperiksa langsung, sampai ke ukuran tiap elemen di halaman ini.':'Every claim above can be checked directly, down to the size of every element on this page.',
     'Kalau idenya dari saya, saya kerjakan sendiri sampai selesai: merancang, merencanakan, membangun, dan mempelajari apa pun yang belum saya kuasai. Kalau idenya dari pihak lain, kita adu gagasan dulu: saya riset, dan begitu cocok, baru kita jalankan. Dari ide mentah sampai siap dinikmati, tanggung jawabnya ada pada saya. Situs ini contohnya.':'If the idea is mine, I see it through myself: designing, planning, building, and learning whatever I have not mastered yet. If the idea comes from someone else, we trade ideas first: I research it, and once it fits, we run with it. From a raw idea to something ready to enjoy, the responsibility is mine. This site is an example.','Intro bergerak, gradasi lembut, dan interaksi halus, semuanya dirancang dari nol tanpa template, supaya setiap kunjungan terasa punya identitas.':'A moving intro, soft gradients, and gentle interactions, all designed from scratch without a template, so every visit feels like it has an identity.','Dibangun dengan bantuan AI sebagai alat. Konsep, keputusan desain, dan arah kerjanya dari saya.':'Built with AI as a tool. The concept, design decisions, and direction are mine.','BUKTI LAIN':'OTHER PROOF','Dua tahun belajar mandiri, tanpa platform berbayar.':'Two years of self-learning, without paid platforms.','Saya membangun platform belajar sendiri sebagai pengganti platform berbayar, supaya belajar tetap gratis, dan menjalaninya secara konsisten selama dua tahun. Hasil belajarnya saya dokumentasikan lewat konten edukasi dengan desain grafis yang nyaman dibaca dan isi yang masuk akal.':'I built my own learning platform as a replacement for paid ones, so learning stays free, and I have kept at it consistently for two years. I document what I learn through educational content with graphic design that is comfortable to read and content that makes sense.','Bahasa Indonesia':'Indonesian','Bahasa Inggris':'English','Matematika':'Mathematics','Fisika':'Physics','Kimia':'Chemistry','Biologi':'Biology','Sepertinya bisa diajak kerja sama?':'Seem like someone you could work with?','Lihat dulu hasilnya, lalu ajak saya ngobrol.':'See the results first, then reach out to me.','Lihat Portofolio':'See the portfolio','Langsung hubungi':'Reach out directly',
     'Dibangun dengan bantuan AI sebagai alat. Konsep, alur berpikir, dan keputusan desainnya dari saya.':'Built with AI as a tool. The concept, line of thinking, and design decisions are mine.','Siswa DKV yang berani masuk ke ranah teknis. Saya merancang tampilan, lalu membangunnya sampai jadi, dari ide mentah sampai siap dinikmati.':'A DKV student who dares to step into the technical side. I design the look, then build it until it works, from a raw idea to something ready to enjoy.','Terbuka untuk proyek dan jasa konsultasi. Lihat dulu hasilnya, lalu ajak saya ngobrol.':'Open to projects and consulting. See the results first, then reach out to me.','BELAJAR MANDIRI':'SELF-STUDY','Saya membangun platform belajar sendiri sebagai pengganti platform berbayar, supaya belajar tetap gratis.':'I built my own learning platform to replace paid ones, so learning stays free.','Bahan ajar disusun sendiri dalam bentuk PDF':'Study materials I compile myself as PDFs','Bank soal sekitar 150 butir, dibuat lewat NotebookLM':'A question bank of about 150 items, generated with NotebookLM','Puluhan konten edukasi dengan desain grafis':'Dozens of educational posts with graphic design','Indonesia · Inggris · Matematika · Fisika · Kimia · Biologi':'Indonesian · English · Mathematics · Physics · Chemistry · Biology','PRODUSER':'PRODUCER','Produser film tugas akhir DKV.':'Producer of the DKV final-project film.','dari 9 kelompok di kelas':'out of 9 groups in the class','Memimpin kelompok 10 orang dari rencana sampai hasil akhir.':'Led a group of 10 from plan to final result.','CARA BEKERJA SAMA':'WORKING TOGETHER','Jelas di awal':'Clear from the start','Brief, ruang lingkup, dan imbalan disepakati sebelum mulai.':'Brief, scope, and compensation are agreed before starting.','Waktu yang dihormati':'Time that is respected','Jam kerja ditentukan bersama dan dipatuhi kedua pihak.':'Working hours are set together and kept by both sides.','Langsung ke inti':'Straight to the point','Komunikasi lugas, tanpa kode-kodean, dengan respons cepat.':'Direct communication, no guessing games, with quick responses.',
+    'Perpaduan berbagai ilmu':'A blend of many disciplines','Desain visual, UI/UX, bahasa, dan psikologi pengguna dipadukan dalam satu karya, bukan sekadar tampilan yang bagus.':'Visual design, UI/UX, language, and user psychology are blended into one work, not just a good-looking interface.',
+    'Situs ini, dalam enam sisi saya.':'This site, in six sides of me.','Tiga pasang sisi yang berlawanan. Pilih satu dari tiap pasang, dan situsnya ikut berubah.':'Three pairs of opposite sides. Pick one from each pair, and the site changes with you.','Ketuk untuk mencoba · satu pilihan per pasang':'Tap to try · one choice per pair','Kembali ke bawaan':'Back to default','Aku itu':'I am','Tenang rapi':'Calm and tidy','Situs melunak: sudut membulat, jarak lebih lega, dan gerakan melambat. Cocok untuk dibaca santai.':'The site softens: rounder corners, more space, slower motion. Good for relaxed reading.','Berani tegas':'Bold and firm','Situs menegas: kontras naik, judul tebal huruf besar, dan sudut tajam. Cocok untuk yang suka langsung.':'The site sharpens: higher contrast, bold uppercase headings, and sharp corners. Good for those who like it direct.','Ringkas langsung':'Brief and direct','Keterangan dipangkas jadi dua baris, sehingga hanya inti yang tampil. Cocok untuk yang sedang buru-buru.':'Descriptions are trimmed to two lines, so only the essence shows. Good for those in a hurry.','Keterangan panjang dipangkas jadi dua baris. Hanya intinya yang tampil.':'Long descriptions are trimmed to two lines. Only the essence shows.','Detail mendalam':'Deep detail','Semua keterangan tampil utuh dan setiap kartu diberi label ukuran aslinya. Cocok untuk yang teliti.':'Every description shows in full and each card is labeled with its real size. Good for the meticulous.','Semua keterangan tampil utuh, dan setiap kartu diberi label ukuran aslinya.':'Every description shows in full, and each card is labeled with its real size.','Kreatif bebas':'Creative and free','Judul berganti huruf miring berseri, kartu sedikit miring, dan warna lebih hidup. Cocok untuk yang suka gaya.':'Headings switch to serif italics, cards tilt slightly, and colors come alive. Good for those who love style.','Judul berganti huruf miring berseri, kartu sedikit miring, dan warna lebih hidup.':'Headings switch to serif italics, cards tilt slightly, and colors come alive.','Teknis presisi':'Technical and precise','Judul berganti huruf mono, sudut dirapikan, dan kisi blueprint muncul. Cocok untuk yang suka presisi.':'Headings switch to monospace, corners tighten, and a blueprint grid appears. Good for those who love precision.','Judul berganti huruf mono, sudut dirapikan, dan kisi blueprint muncul di latar.':'Headings switch to monospace, corners tighten, and a blueprint grid appears behind.',
     'Dulu':'Before','Sekarang':'Now','Jenjang menengah pertama':'Junior high school','Desain Visual':'Visual Design','Tentang':'About','CERITA':'STORY','PENGALAMAN':'EXPERIENCE','Situs yang lagi kamu buka ini bikinan sendiri.':'This site you are looking at, I built myself.','Desain Komunikasi Visual':'Visual Communication Design','Lihat perjalanan lengkap':'See the full journey','Lulus 2027':'Graduating 2027','Kreatif':'Creative',
     'Siswa DKV dari Singaraja yang suka merancang tampilan, lalu menulis kodenya sendiri. Masih belajar, masih sering salah, tapi tiap minggu selalu ada yang baru dibuat.':'A DKV student from Singaraja who likes designing the look and then writing the code himself. Still learning, still making mistakes, but something new gets built every week.',
     'Siswa DKV yang suka ngoding. Web ini aku bikin sendiri.':'A DKV student who likes coding. I built this site myself.',
@@ -951,7 +952,7 @@ I18N.init();
 /* Tentang: karya unggulan. Tiap poin bisa diketuk untuk membuka buktinya. Semua angka dibaca langsung dari halaman ini (tidak dikarang) */
 window.AP = (function(){
   var sec = document.getElementById('cv'), bp = false, t = 0;
-  var SEL = '.cv-card,.edu-item,.ap-panel,.ap-row';
+  var SEL = '.cv-card,.edu-item,.ap-q,.porto-item', st = { 1: 0, 2: 0, 3: 0 };
   function en(){ return document.documentElement.lang === 'en'; }
   function mode(){
     var st = document.querySelector('.stage'), low, lite;   // kelas lite/low diset sistem tier di panggung intro
@@ -980,36 +981,200 @@ window.AP = (function(){
     return sents ? (words / sents).toFixed(1).replace('.', en() ? '.' : ',') : '—';
   }
   function details(){
-    var e = en(), s = cssStats(), nodes = document.getElementsByTagName('*').length, secs = document.querySelectorAll('section').length;
-    var red = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, L = loadText();
+    var e = en(), s = cssStats(), nodes = document.getElementsByTagName('*').length, secs = document.querySelectorAll('section').length, L = loadText();
     var d = [
-      (e ? 'average ' + avgWords() + ' words per sentence · 2 languages (ID/EN) · ' + secs + ' sections' : 'rata-rata ' + avgWords() + ' kata per kalimat · 2 bahasa (ID/EN) · ' + secs + ' bagian'),
-      (e ? 'no template, no framework · ' + s.kf + ' animations · ' + s.rules + ' style rules' : 'tanpa template dan framework · ' + s.kf + ' animasi · ' + s.rules + ' aturan gaya'),
-      (e ? 'ready in ' : 'siap dipakai ') + L + (e ? ' · third-party scripts: ' : ' · script pihak ketiga: ') + libs(),
-      e ? 'mode ' + mode() + ' (automatic) · 2 themes · reduce motion: ' + (red ? 'on' : 'off') : 'mode ' + mode() + ' (otomatis) · 2 tema · kurangi gerakan: ' + (red ? 'aktif' : 'mati'),
-      e ? 'blueprint on: the size of every element is shown' : 'blueprint aktif: ukuran tiap elemen ditampilkan'
+      e ? 'rounder corners · more space · slower motion' : 'sudut lebih bulat · jarak lebih lega · gerak lebih lambat',
+      e ? 'higher contrast · bold headings · sharper corners' : 'kontras lebih tinggi · judul tebal · sudut lebih tegas',
+      e ? 'long text trimmed to two lines' : 'teks panjang dipangkas jadi dua baris',
+      e ? secs + ' sections · ' + nodes + ' elements · ' + s.kf + ' animations · ready in ' + L + ' · mode ' + mode()
+        : secs + ' bagian · ' + nodes + ' elemen · ' + s.kf + ' animasi · siap ' + L + ' · mode ' + mode(),
+      e ? 'serif italic headings · tilted cards · livelier color' : 'judul huruf miring berseri · kartu sedikit miring · warna lebih hidup',
+      e ? 'monospaced headings · tight corners · blueprint grid' : 'judul huruf mono · sudut rapat · kisi blueprint'
     ];
     d.forEach(function(txt, i){ var el = document.getElementById('ap' + (i + 1)); if (el) el.textContent = txt; });
   }
   function label(){
-    sec.querySelectorAll(SEL).forEach(function(el){
+    document.querySelectorAll(SEL).forEach(function(el){
       var r = el.getBoundingClientRect(), cs = getComputedStyle(el);
       el.setAttribute('data-dim', Math.round(r.width) + ' × ' + Math.round(r.height) + ' · r' + (parseInt(cs.borderTopLeftRadius, 10) || 0) + ' · p' + (parseInt(cs.paddingLeft, 10) || 0));
     });
   }
-  function setBP(on){
-    bp = on; sec.classList.toggle('bp', on);
-    if (on) label(); else sec.querySelectorAll('[data-dim]').forEach(function(el){ el.removeAttribute('data-dim'); });
+  function clearLabels(){ document.querySelectorAll('[data-dim]').forEach(function(el){ el.removeAttribute('data-dim'); }); }
+  function applyBody(){
+    var b = document.body, any = false;
+    [1, 2, 3].forEach(function(p){
+      b.classList.remove('m' + p + 'a'); b.classList.remove('m' + p + 'b');
+      if (st[p]) { b.classList.add('m' + p + (st[p] === 1 ? 'a' : 'b')); any = true; }
+    });
+    b.classList.toggle('m-any', any);
+    if (st[2] === 2) setTimeout(label, 140); else clearLabels();   // label ukuran dibaca setelah gaya baru terpasang
+  }
+  function slotFor(li){
+    var rows = document.querySelectorAll('.ap-row'), i = Array.prototype.indexOf.call(rows, li);
+    return { slot: document.querySelectorAll('.ap-slot')[Math.floor(i / 2)], side: i % 2 };
+  }
+  function fillSlot(li, animate){
+    var s = slotFor(li), slot = s.slot; if (!slot) return;
+    var body = slot.querySelector('.ap-slot-body'), cs = getComputedStyle(li);
+    function put(){
+      body.querySelector('.ap-view-t').textContent = li.querySelector('b').textContent;
+      body.querySelector('.ap-view-d').textContent = li.querySelector('.ap-d').textContent;
+      body.querySelector('.ap-detail').textContent = li.querySelector('.ap-proof .ap-detail').textContent;
+      body.classList.remove('fade');
+    }
+    slot.style.setProperty('--g1', cs.getPropertyValue('--g1')); slot.style.setProperty('--g2', cs.getPropertyValue('--g2'));
+    slot.style.setProperty('--px', s.side ? '75%' : '25%');   // posisi segitiga dan titik awal garis (bergeser halus lewat transisi)
+    slot.classList.add('open'); slot.setAttribute('aria-hidden', 'false');
+    clearTimeout(slot._ft);
+    if (animate) { body.classList.add('fade'); slot._ft = setTimeout(put, 150); } else put();   // ganti isi dengan crossfade, tinggi tidak berubah
+  }
+  function closeSlots(except){
+    Array.prototype.forEach.call(document.querySelectorAll('.ap-slot.open'), function(sl){ if (sl !== except) { sl.classList.remove('open'); sl.setAttribute('aria-hidden', 'true'); } });
+  }
+  function equalize(){
+    // semua kotak penjelasan memakai tinggi yang sama: diukur dari keterangan terpanjang pada lebar saat ini
+    var body = document.querySelector('.ap-slot-body'), rows = document.querySelectorAll('.ap-row'); if (!body || !rows.length) return;
+    var holder = body.parentNode, w = holder.clientWidth; if (!w) return;
+    details();
+    var m = body.cloneNode(true); m.removeAttribute('style'); m.className = 'ap-slot-body';
+    m.style.cssText = 'position:absolute;left:0;top:0;visibility:hidden;width:' + w + 'px;min-height:0;margin:0';
+    holder.appendChild(m);
+    var max = 0;
+    rows.forEach(function(li){
+      m.querySelector('.ap-view-t').textContent = li.querySelector('b').textContent;
+      m.querySelector('.ap-view-d').textContent = li.querySelector('.ap-d').textContent;
+      m.querySelector('.ap-detail').textContent = li.querySelector('.ap-proof .ap-detail').textContent;
+      max = Math.max(max, m.offsetHeight);
+    });
+    holder.removeChild(m);
+    document.querySelector('.ap-rows').style.setProperty('--sh', max + 'px');
   }
   function toggle(btn){
-    var li = btn.closest('.ap-row'), open = !li.classList.contains('open');
-    li.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (open) details();
-    if (li.getAttribute('data-bp') === '1') setBP(open);   // poin "kedalaman" menyalakan tampilan blueprint
+    // tiga pasang saklar. Satu pilihan per pasang; ketiganya bisa ditumpuk. Sekat di bawah baris pasangannya memanjang dan menjelaskan.
+    if (!document.querySelector('.ap-rows').style.getPropertyValue('--sh')) equalize();   // pastikan tinggi seragam sudah terukur
+    var li = btn.closest('.ap-row'), i = +li.getAttribute('data-i'), p = Math.ceil(i / 2), side = i % 2 ? 1 : 2;
+    var rows = document.querySelectorAll('.ap-row'), slot = document.querySelectorAll('.ap-slot')[p - 1], wasOpen = slot.classList.contains('open');
+    [rows[(p - 1) * 2], rows[(p - 1) * 2 + 1]].forEach(function(r){
+      r.classList.remove('open'); var q = r.querySelector('.ap-q'); q.setAttribute('aria-pressed', 'false'); q.setAttribute('aria-expanded', 'false');
+    });
+    if (st[p] === side) { st[p] = 0; slot.classList.remove('open'); slot.setAttribute('aria-hidden', 'true'); }
+    else {
+      st[p] = side; li.classList.add('open'); btn.setAttribute('aria-pressed', 'true'); btn.setAttribute('aria-expanded', 'true');
+      details(); fillSlot(li, wasOpen);
+      if (navigator.vibrate) { try { navigator.vibrate(8); } catch (e) {} }   // getaran halus di HP
+    }
+    applyBody();
   }
-  window.addEventListener('resize', function(){ if (!bp) return; clearTimeout(t); t = setTimeout(label, 150); });
-  if ('MutationObserver' in window) new MutationObserver(function(){ details(); if (bp) setTimeout(label, 60); }).observe(document.documentElement, { attributes:true, attributeFilter:['lang'] });
-  return { toggle: toggle };
+  function reset(){
+    st = { 1: 0, 2: 0, 3: 0 };
+    document.querySelectorAll('.ap-row.open').forEach(function(r){ r.classList.remove('open'); var q = r.querySelector('.ap-q'); q.setAttribute('aria-pressed', 'false'); q.setAttribute('aria-expanded', 'false'); });
+    closeSlots(null); applyBody();
+  }
+  window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(function(){ equalize(); if (st[2] === 2) label(); }, 150); });
+  if ('MutationObserver' in window) new MutationObserver(function(){
+    details(); setTimeout(function(){ document.querySelectorAll('.ap-row.open').forEach(function(o){ fillSlot(o, false); }); equalize(); if (st[2] === 2) label(); }, 80);
+  }).observe(document.documentElement, { attributes:true, attributeFilter:['lang'] });
+  window.addEventListener('load', equalize); setTimeout(equalize, 400);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(equalize);
+  return { toggle: toggle, reset: reset };
 })();
 
-/* ===== script.js (SELESAI) ===== */
+/* BAR NAVIGASI ATAS: semua nama bagian, yang aktif menyala. Muncul setelah intro; menggantikan pil judul */
+(function(){
+  var bar = document.getElementById('topBar'); if (!bar) return;
+  var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ITEMS = [['hero','Beranda','Home','Beranda','Home'],['cv','Tentang','About','Tentang','About'],['skill','Skill','Skills','Skill','Skills'],['porto','Portofolio','Portfolio','Porto','Work'],['tl','Pengalaman','Experience','Jejak','Path'],['exp','Kenali Lebih Jauh','Get to Know Me','Kenali','Know me'],['kontak','Kontak','Contact','Kontak','Contact']];
+  var inner = document.createElement('div'); inner.className = 'tb-in'; var ind = document.createElement('i'); ind.className = 'tb-ind'; inner.appendChild(ind);
+  var links = ITEMS.map(function(it, k){
+    var a = document.createElement('a'); a.className = 'tb-a'; a.href = '#' + it[0]; a.setAttribute('data-id', it[0]);
+    a.addEventListener('click', function(e){ e.preventDefault(); var s = document.getElementById(it[0]); if (s) s.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); });
+    inner.appendChild(a); return a;
+  });
+  bar.appendChild(inner);
+  var current = null;
+  function names(){
+    var en = document.documentElement.lang === 'en', sh = window.matchMedia && matchMedia('(max-width: 640px)').matches;   // layar sempit: nama dipendekkan agar semuanya muat tanpa digeser
+    links.forEach(function(a, k){ a.textContent = ITEMS[k][en ? (sh ? 4 : 2) : (sh ? 3 : 1)]; }); place();
+  }
+  function place(){
+    var a = current && inner.querySelector('.tb-a[data-id="' + current + '"]'); if (!a) { ind.style.width = '0'; return; }
+    var pad = parseFloat(getComputedStyle(a).paddingLeft) || 0;
+    ind.style.width = Math.max(0, a.offsetWidth - pad * 2) + 'px'; ind.style.transform = 'translateX(' + (a.offsetLeft + pad) + 'px)';
+  }
+  function setActive(id){
+    if (id === current) return; current = id;
+    links.forEach(function(a){ var on = a.getAttribute('data-id') === id; a.classList.toggle('on', on); if (on) { a.setAttribute('aria-current', 'true'); a.classList.remove('lit'); void a.offsetWidth; a.classList.add('lit'); } else a.removeAttribute('aria-current'); });
+    place();
+  }
+  var ticking = false;
+  function onScroll(){
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function(){
+      ticking = false; var vh = window.innerHeight, act = null;
+      ITEMS.forEach(function(it){ var s = document.getElementById(it[0]); if (s && s.getBoundingClientRect().top <= vh * 0.4) act = it[0]; });
+      setActive(act);
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function(){ names(); });
+  if ('MutationObserver' in window) new MutationObserver(names).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  names(); onScroll();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+})();
+
+/* PAGING ALA TIKTOK antara INTRO dan BERANDA.
+   Intro > beranda: scroll ringan (12% layar) sudah cukup. Beranda > intro: harus jauh lebih niat (45% layar); yang kecil ditolak dan beranda "memantul" kembali.
+   Roda/trackpad: dicegat lalu dianimasikan langsung (tanpa jeda). Sentuhan: mengikuti jari, lalu menetap dengan animasi ber-easing. */
+(function(){
+  var hero = document.getElementById('hero'); if (!hero) return;
+  var root = document.documentElement, reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var animating = false, raf = 0, lastY = window.scrollY, startY = null, idle = 0, acc = 0, accT = 0, WT = 0, swallow = false, bumpT = 0;
+  function H(){ return hero.offsetTop; }
+  function ease(t){ return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function stop(){ if (!animating) return; cancelAnimationFrame(raf); animating = false; root.style.scrollBehavior = ''; }
+  function go(target){
+    var from = window.scrollY; if (animating) return;
+    if (Math.abs(target - from) < 2) { lastY = from; return; }
+    if (reduced) { root.style.scrollBehavior = 'auto'; window.scrollTo(0, target); root.style.scrollBehavior = ''; lastY = target; return; }
+    animating = true; startY = null; root.style.scrollBehavior = 'auto';   // CSS global memakai scroll-behavior:smooth; matikan sementara agar tidak berebut
+    var dur = Math.min(640, 400 + Math.abs(target - from) * 0.22), t0 = performance.now();
+    (function step(now){
+      var p = Math.min(1, (now - t0) / dur); window.scrollTo(0, from + (target - from) * ease(p));
+      if (p < 1) raf = requestAnimationFrame(step); else { animating = false; root.style.scrollBehavior = ''; lastY = window.scrollY; startY = null; }
+    })(t0);
+  }
+  function bump(){ if (bumpT) return; hero.classList.add('bump'); bumpT = setTimeout(function(){ hero.classList.remove('bump'); bumpT = 0; }, 400); }
+  window.addEventListener('wheel', function(e){
+    if (e.ctrlKey || root.classList.contains('lock') || Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
+    var now = performance.now(), y = window.scrollY, h = H(), d = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaMode === 2 ? e.deltaY * window.innerHeight : e.deltaY;
+    if (animating) { e.preventDefault(); WT = now; return; }
+    if (swallow) { if (now - WT > 160) swallow = false; else { e.preventDefault(); WT = now; return; } }   // telan sisa inersia trackpad setelah pindah halaman
+    var inIntro = y < h - 2, atHero = Math.abs(y - h) <= 2;
+    if (!(inIntro || (atHero && d < 0))) { acc = 0; return; }   // di luar zona intro-beranda: scroll bebas
+    if (inIntro && y < 2 && d < 0) return;
+    e.preventDefault(); WT = now;
+    if (now - accT > 220 || (acc !== 0 && (acc > 0) !== (d > 0))) acc = 0;
+    acc += d; accT = now;
+    var vh = window.innerHeight;
+    if (acc > 0) { if (inIntro && acc >= vh * 0.12) { swallow = true; acc = 0; go(h); } }
+    else if (acc < 0) { if (-acc >= vh * 0.45) { swallow = true; acc = 0; go(0); } else if (atHero) bump(); }
+  }, { passive: false });
+  window.addEventListener('touchstart', stop, { passive: true });
+  window.addEventListener('keydown', stop);
+  function settle(){
+    var y = window.scrollY, h = H(), s = startY; startY = null;
+    if (animating || s === null || !h) { lastY = y; return; }
+    if (y > h + 4 || y < 2) { lastY = y; return; }          // di luar zona: scroll bebas
+    var d = y - s, vh = window.innerHeight, target;
+    if (d === 0) { lastY = y; return; }
+    if (d > 0) target = (y >= vh * 0.12) ? h : 0;            // turun dari intro
+    else target = ((h - y) >= vh * 0.45) ? 0 : h;            // naik dari beranda
+    if (Math.abs(y - target) < 2) { lastY = y; return; }
+    go(target);
+  }
+  window.addEventListener('scroll', function(){
+    if (animating) return;
+    if (startY === null) startY = lastY;
+    clearTimeout(idle); idle = setTimeout(settle, 90);
+  }, { passive: true });
+})();
